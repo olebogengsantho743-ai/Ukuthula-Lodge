@@ -20,12 +20,14 @@
 <div class="search-container">
     <input 
         type="text" 
-        id="websiteSearch" 
+        id="websiteSearch"
         placeholder="Search Ukuthula Lodge..."
-        onkeyup="searchWebsite()"
+        autocomplete="off"
     >
-    <button onclick="searchWebsite()">🔍</button>
+    <button type="button" id="searchButton">🔍</button>
 </div>
+
+<div id="searchMessage"></div>
 
 <!-- HEADER -->
 <header>
