@@ -563,7 +563,11 @@ nav a:hover {
     font-size: 25px;
     margin-bottom: 10px;
 }
-
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 5px 0;
+}
 
 /* =====================================================
    ONLINE PLATFORMS
