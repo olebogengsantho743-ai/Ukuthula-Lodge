@@ -1,372 +1,1474 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Ukuthula Lodge | When Nature Meets Beauty</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header>
-        <nav class="navbar">
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div>KwaZulu-Natal, South Africa</div>
+    <a href="https://www.instagram.com/ukuthula_lodge" target="_blank">
+        Instagram
+    </a>
+</div>
 
-            <div class="logo">
-                <span>UKUTHULA</span>
-                <small>LODGE</small>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <span>UKUTHULA</span>
+        <small>LODGE</small>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#accommodation">Accommodation</a>
+        <a href="#activities">Activities</a>
+        <a href="#sustainability">Sustainability</a>
+        <a href="#dining">Dining</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#book" class="nav-button">Book Now</a>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-overlay">
+        <p>WELCOME TO</p>
+        <h1>UKUTHULA LODGE</h1>
+        <h2>WHEN NATURE MEETS BEAUTY</h2>
+        <a href="#book" class="button">Explore Your Stay</a>
+    </div>
+</section>
+
+
+<!-- BOOKING BAR -->
+<section class="booking-bar" id="book">
+    <div>
+        <label>Check In</label>
+        <input type="date" id="checkIn">
+    </div>
+
+    <div>
+        <label>Check Out</label>
+        <input type="date" id="checkOut">
+    </div>
+
+    <div>
+        <label>Guests</label>
+        <select id="guests">
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6+ Guests</option>
+        </select>
+    </div>
+
+    <button onclick="checkAvailability()">Check Availability</button>
+</section>
+
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+    <div class="section-image">
+<img src="images/hero.jpg" alt="Ukuthula Lodge">
+    </div>
+
+    <div class="section-content">
+        <p class="eyebrow">WELCOME TO UKUTHULA</p>
+
+        <h2>A Place Where Nature Meets Beauty</h2>
+
+        <p>
+            Ukuthula Lodge is a peaceful destination in KwaZulu-Natal
+            where guests can reconnect with nature while enjoying
+            beautiful accommodation, exciting activities and relaxing
+            experiences.
+        </p>
+
+        <p>
+            Our goal is to create a memorable stay while respecting
+            and protecting the natural environment around us.
+        </p>
+
+        <a href="#activities" class="text-link">Discover Ukuthula →</a>
+    </div>
+</section>
+
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="feature">
+        <h3>Nature</h3>
+        <p>Experience the beauty of the natural environment.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Relaxation</h3>
+        <p>Enjoy peaceful spaces and our spa experience.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Adventure</h3>
+        <p>Take part in exciting outdoor activities.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Sustainability</h3>
+        <p>Experience a lodge committed to responsible tourism.</p>
+    </div>
+</section>
+
+
+<!-- ACCOMMODATION -->
+<section class="section" id="accommodation">
+    <div class="section-heading">
+        <p class="eyebrow">STAY WITH US</p>
+        <h2>Accommodation</h2>
+        <p>Comfortable spaces designed for a peaceful stay.</p>
+    </div>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <img src="images/king-room.jpg" alt="King Room">
+            <div class="card-content">
+                <h3>King Room</h3>
+                <p>A comfortable room for guests looking for a relaxing stay.</p>
             </div>
+        </div>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#accommodation">Accommodation</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#staff">Our Team</a></li>
-                <li><a href="#sustainability">Sustainability</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="card">
+            <img src="images/suite.jpg" alt="Suite">
+            <div class="card-content">
+                <h3>Suite</h3>
+                <p>A spacious option for guests wanting additional comfort.</p>
+            </div>
+        </div>
 
-            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="card">
+            <img src="images/junior-suite.jpg" alt="Junior Suite">
+            <div class="card-content">
+                <h3>Junior Suite</h3>
+                <p>A stylish and peaceful space for your getaway.</p>
+            </div>
+        </div>
 
-        </nav>
-    </header>
+        <div class="card">
+            <img src="images/superior-king.jpg" alt="Superior King">
+            <div class="card-content">
+                <h3>Superior King</h3>
+                <p>A premium room experience surrounded by nature.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/self-catering.jpg" alt="Self Catering">
+            <div class="card-content">
+                <h3>Self Catering</h3>
+                <p>Enjoy the flexibility of preparing your own meals.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/package.jpg" alt="Ukuthula Package">
+            <div class="card-content">
+                <h3>Ukuthula Package</h3>
+                <p>A complete experience designed to make your stay memorable.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 
-    <!-- HOME -->
-    <section id="home" class="hero">
+<!-- IMAGE BREAK -->
+<section class="image-break">
+    <div>
+        <h2>Reconnect With Nature</h2>
+        <p>Relax, explore and experience Ukuthula.</p>
+    </div>
+</section>
 
-        <div class="hero-overlay">
 
-            <p class="welcome">WELCOME TO</p>
+<!-- ACTIVITIES -->
+<section class="section activities-section" id="activities">
 
-            <h1>UKUTHULA LODGE</h1>
+    <div class="section-heading">
+        <p class="eyebrow">EXPERIENCE UKUTHULA</p>
+        <h2>Activities</h2>
+        <p>
+            From nature experiences to entertainment and adventure,
+            there is something for everyone.
+        </p>
+    </div>
 
-            <h2>WHEN NATURE MEETS BEAUTY</h2>
+    <div class="activity-grid">
+
+        <div class="activity-card">
+            <img src="images/flower-picking.jpg" alt="Flower picking">
+            <h3>Flower Picking & Bunch Making</h3>
+            <p>
+                Explore our marked flower-picking area and create
+                beautiful bunches of flowers.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/animal-feeding.jpg" alt="Animal feeding">
+            <h3>Animal Feeding</h3>
+            <p>
+                Get closer to nature through an interactive animal
+                feeding experience.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/spa.jpg" alt="Spa">
+            <h3>Spa</h3>
+            <p>
+                Relax and enjoy a peaceful spa experience.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/game-drive.jpg" alt="Game drive">
+            <h3>Game Drive</h3>
+            <p>
+                Discover wildlife and experience the beauty of the outdoors.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/hall.jpg" alt="Hall">
+            <h3>Hall</h3>
+            <p>
+                A versatile space suitable for gatherings and functions.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/hiking.jpg" alt="Hiking trail">
+            <h3>Hiking Trail</h3>
+            <p>
+                Walk through beautiful natural surroundings and enjoy
+                the peaceful environment.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/recreational.jpg" alt="Recreational activities">
+            <h3>Recreational</h3>
+            <p>
+                Enjoy a range of recreational activities during your stay.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/padel-courts.jpg" alt="Padel courts">
+            <h3>Padel Courts</h3>
+            <p>
+                Enjoy an active game with friends and family.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/amphitheatre.jpg" alt="Amphitheatre">
+            <h3>Amphitheatre</h3>
+            <p>
+                Enjoy entertainment and special experiences in our
+                outdoor amphitheatre.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/events.jpg" alt="Events">
+            <h3>Events</h3>
+            <p>
+                Host or attend memorable events surrounded by nature.
+            </p>
+        </div>
+
+        <div class="activity-card">
+            <img src="images/plays.jpg" alt="Plays">
+            <h3>Plays</h3>
+            <p>
+                Experience live performances and entertainment.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SUSTAINABILITY -->
+<section class="section sustainability" id="sustainability">
+
+    <div class="section-heading">
+        <p class="eyebrow">OUR ENVIRONMENT</p>
+        <h2>Sustainability at Ukuthula</h2>
+        <p>
+            We believe that enjoying nature also means taking care of it.
+            Ukuthula Lodge focuses on practical ways to reduce waste,
+            save resources and support the surrounding community.
+        </p>
+    </div>
+
+    <div class="sustainability-grid">
+
+        <div class="sustainability-card">
+            <span>🌱</span>
+            <h3>Vegetable Garden</h3>
+            <p>
+                Growing vegetables locally helps reduce our reliance
+                on outside produce.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>💧</span>
+            <h3>Filtration System</h3>
+            <p>
+                Our filtration approach helps us make better use
+                of water resources.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>🧼</span>
+            <h3>Eco-Based Soaps</h3>
+            <p>
+                We use environmentally conscious soap products
+                wherever possible.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>🌿</span>
+            <h3>Harvested Loofah</h3>
+            <p>
+                Natural loofah products provide a more sustainable
+                alternative to synthetic materials.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>🤝</span>
+            <h3>Local Businesses</h3>
+            <p>
+                We support local businesses and suppliers within
+                the surrounding community.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>🎋</span>
+            <h3>Bamboo</h3>
+            <p>
+                Bamboo can be used as a renewable alternative
+                for selected lodge products and materials.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>💡</span>
+            <h3>Motion Sensors</h3>
+            <p>
+                Motion sensors help reduce unnecessary electricity
+                consumption.
+            </p>
+        </div>
+
+        <div class="sustainability-card">
+            <span>🍴</span>
+            <h3>Biodegradable Cutlery</h3>
+            <p>
+                Biodegradable cutlery helps us reduce the use
+                of traditional plastic products.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- DINING -->
+<section class="section dining" id="dining">
+
+    <div class="section-heading">
+        <p class="eyebrow">TASTE UKUTHULA</p>
+        <h2>Dining</h2>
+        <p>Enjoy delicious meals during your stay.</p>
+    </div>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <img src="images/umngqusho-chicken.jpg" alt="Umngqusho and chicken">
+            <div class="card-content">
+                <h3>Umngqusho & Chicken</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/umngqusho-beef.jpg" alt="Umngqusho and beef">
+            <div class="card-content">
+                <h3>Umngqusho & Beef</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/mogodu-pap.jpg" alt="Mogodu and pap">
+            <div class="card-content">
+                <h3>Mogodu & Pap</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/braai-platter.jpg" alt="Braai platter">
+            <div class="card-content">
+                <h3>Braai Platter</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/jollof-chicken.jpg" alt="Jollof chicken">
+            <div class="card-content">
+                <h3>Jollof Chicken</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="catering-box">
+        <h3>Catering Options</h3>
+        <p>
+            Choose between <strong>Self Catering</strong> or
+            having our <strong>Chef Cook</strong> for you.
+        </p>
+    </div>
+
+</section>
+
+
+<!-- ONLINE PLATFORMS -->
+<section class="section online-platforms">
+
+    <div class="section-heading">
+        <p class="eyebrow">STAY CONNECTED</p>
+        <h2>Online Platforms</h2>
+        <p>
+            Follow Ukuthula Lodge online and stay updated with
+            our latest experiences, events and promotions.
+        </p>
+    </div>
+
+    <div class="platform-box">
+
+        <a href="https://www.instagram.com/ukuthula_lodge"
+           target="_blank"
+           class="platform">
+            <h3>Instagram</h3>
+            <p>@ukuthula_lodge</p>
+        </a>
+
+        <div class="platform">
+            <h3>Promotions</h3>
+            <p>Follow our social platforms for the latest updates.</p>
+        </div>
+
+        <div class="platform">
+            <h3>Online Booking</h3>
+            <p>Contact us to enquire about your next stay.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PROMOTIONAL VIDEO -->
+<section class="video-section">
+
+    <div class="video-content">
+        <p class="eyebrow">EXPERIENCE UKUTHULA</p>
+        <h2>See Ukuthula For Yourself</h2>
+
+        <p>
+            Our promotional video will showcase the lodge,
+            activities, nature, accommodation and experiences
+            available to our guests.
+        </p>
+
+        <p>
+            <strong>Grand Video:</strong> Follow the latest trends,
+            including creative “pass the phone” style content,
+            to introduce guests to the Ukuthula experience.
+        </p>
+
+        <div class="video-placeholder">
+            <span>▶</span>
+            <p>Promotional Video Coming Soon</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- HOTEL OVERVIEW -->
+<section class="section overview">
+
+    <div class="section-heading">
+        <p class="eyebrow">DISCOVER US</p>
+        <h2>Hotel Overview</h2>
+        <p>
+            Everything you need for a comfortable, memorable
+            and nature-filled stay.
+        </p>
+    </div>
+
+    <div class="overview-grid">
+
+        <div>
+            <h3>Nature & Adventure</h3>
+            <p>
+                Enjoy wildlife, hiking, flower picking, game drives
+                and recreational activities.
+            </p>
+        </div>
+
+        <div>
+            <h3>Relaxation</h3>
+            <p>
+                Take time to relax with our spa and peaceful
+                natural surroundings.
+            </p>
+        </div>
+
+        <div>
+            <h3>Entertainment</h3>
+            <p>
+                Enjoy our amphitheatre, plays, events and
+                other entertainment experiences.
+            </p>
+        </div>
+
+        <div>
+            <h3>Eco Experience</h3>
+            <p>
+                Learn how responsible tourism and sustainability
+                can work together.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOYALTY CARD -->
+<section class="loyalty-section">
+
+    <div class="loyalty-card">
+
+        <div>
+            <p class="eyebrow">LOYALTY PROGRAMME</p>
+            <h2>Ukuthula Loyalty Card</h2>
 
             <p>
-                Experience the beauty of nature, peaceful surroundings
-                and unforgettable moments in KwaZulu-Natal.
+                Return to Ukuthula and become part of our
+                loyalty programme. Enjoy exclusive benefits
+                and rewards as a returning guest.
             </p>
 
-            <a href="#about" class="hero-btn">EXPLORE OUR LODGE</a>
-
+            <button class="button" onclick="loyaltyMessage()">
+                Learn More
+            </button>
         </div>
 
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-
-        <div class="section-heading">
-            <p>DISCOVER UKUTHULA</p>
-            <h2>Where Nature Meets Beauty</h2>
+        <div class="loyalty-symbol">
+            U
         </div>
 
-        <div class="about-container">
+    </div>
 
-            <div class="about-text">
+</section>
 
-                <p>
-                    Ukuthula Lodge is a peaceful eco-lodge located in the
-                    beautiful province of KwaZulu-Natal, South Africa.
-                    Our lodge provides guests with an opportunity to
-                    reconnect with nature while enjoying comfort,
-                    relaxation and memorable experiences.
-                </p>
 
-                <p>
-                    From exciting game drives and animal feeding to
-                    relaxing spa treatments and scenic hiking trails,
-                    Ukuthula Lodge offers something for every guest.
-                </p>
+<!-- PARTNERSHIPS -->
+<section class="section partnerships">
 
-                <a href="#activities" class="dark-btn">DISCOVER EXPERIENCES</a>
+    <div class="section-heading">
+        <p class="eyebrow">OUR COMMUNITY</p>
+        <h2>Partnerships</h2>
+        <p>
+            We believe in working with local businesses and
+            creating opportunities within our community.
+        </p>
+    </div>
 
-            </div>
+    <div class="partnership-box">
 
-            <div class="about-box">
-                <h3>UKUTHULA</h3>
-                <p>
-                    A place to relax, explore and experience
-                    the beauty of nature.
-                </p>
-            </div>
-
+        <div>
+            <h3>Local Butchers</h3>
+            <p>
+                Ukuthula can partner with local butchers to
+                source quality meat while supporting local business.
+            </p>
         </div>
 
-    </section>
-
-
-    <!-- ACCOMMODATION -->
-    <section id="accommodation" class="section accommodation">
-
-        <div class="section-heading">
-            <p>YOUR STAY</p>
-            <h2>Accommodation & Catering</h2>
+        <div>
+            <h3>Local Suppliers</h3>
+            <p>
+                Supporting local suppliers helps strengthen the
+                surrounding community and economy.
+            </p>
         </div>
 
-        <div class="cards">
+    <div>
+     <h3>WWF SA</h3>
+     <p>
+       help to preserve marine life and water
+     </p>
 
-            <div class="card">
-                <div class="card-icon">🏡</div>
-                <h3>Self-Catering</h3>
+
+
+</section>
+
+<!-- ==================== WEDDING PACKAGE ==================== -->
+
+<section class="wedding-package" id="weddings">
+
+    <div class="package-header">
+        <span class="section-label">UKUTHULA LODGE</span>
+
+        <h2>Wedding Package</h2>
+
+        <p>
+            Celebrate your special day surrounded by nature, beauty
+            and unforgettable moments at Ukuthula Lodge.
+        </p>
+    </div>
+
+
+    <!-- OUR SPACES -->
+<div class="package-section">
+
+    <div class="package-title">
+        <span>01</span>
+        <h3>Our Spaces</h3>
+    </div>
+
+    <div class="package-grid">
+
+        <!-- Ceremony Area -->
+        <div class="package-card space-card">
+
+            <img src="images/ceremony-area.jpg"
+                 alt="Ukuthula Lodge Ceremony Area">
+
+            <div class="space-content">
+                <h4>Ceremony Area</h4>
+
                 <p>
-                    Enjoy the freedom and flexibility of preparing
-                    your own meals during your stay at Ukuthula Lodge.
+                    Available from 3:00 PM
                 </p>
-            </div>
 
-            <div class="card">
-                <div class="card-icon">🍽️</div>
-                <h3>Chef-Cooked Meals</h3>
-                <p>
-                    Guests can enjoy delicious meals prepared by
-                    our chef using carefully selected ingredients.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ACTIVITIES -->
-    <section id="activities" class="section">
-
-        <div class="section-heading">
-            <p>EXPERIENCE MORE</p>
-            <h2>Activities & Experiences</h2>
-        </div>
-
-        <div class="activity-grid">
-
-            <div class="activity">
-                <span>🦒</span>
-                <h3>Animal Feeding</h3>
-                <p>
-                    Get closer to nature through memorable
-                    animal-feeding experiences.
-                </p>
-            </div>
-
-            <div class="activity">
-                <span>🚙</span>
-                <h3>Game Drives</h3>
-                <p>
-                    Explore the natural surroundings and discover
-                    wildlife with our experienced game driver.
-                </p>
-            </div>
-
-            <div class="activity">
-                <span>🥾</span>
-                <h3>Hiking Trails</h3>
-                <p>
-                    Discover beautiful natural scenery while
-                    enjoying our hiking trails.
-                </p>
-            </div>
-
-            <div class="activity">
-                <span>💆</span>
-                <h3>Spa</h3>
-                <p>
-                    Relax your body and mind with our peaceful
-                    spa experience.
-                </p>
-            </div>
-
-            <div class="activity">
-                <span>🏛️</span>
-                <h3>Hall</h3>
-                <p>
-                    A versatile space suitable for gatherings,
-                    events and special occasions.
-                </p>
-            </div>
-
-            <div class="activity">
-                <span>🌿</span>
-                <h3>Recreation</h3>
-                <p>
-                    Enjoy a variety of recreational activities
-                    during your stay.
-                </p>
+                <span class="included">Included</span>
             </div>
 
         </div>
 
-    </section>
 
+        <!-- Reception Venue -->
+        <div class="package-card space-card">
 
-    <!-- STAFF -->
-    <section id="staff" class="section staff-section">
+            <img src="images/reception-venue.jpg"
+                 alt="Ukuthula Lodge Reception Venue">
 
-        <div class="section-heading">
-            <p>MEET OUR TEAM</p>
-            <h2>The People Behind Ukuthula</h2>
+            <div class="space-content">
+                <h4>Reception Venue</h4>
+
+                <p>
+                    Available until midnight
+                </p>
+
+                <span class="included">Included</span>
+            </div>
+
         </div>
 
-        <div class="staff-grid">
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        <!-- Honeymoon Suite -->
+        <div class="package-card space-card">
+
+            <img src="images/queen's-chambers-honeymoon-suite.jpg"
+                 alt="Queen's Chambers Honeymoon Suite">
+
+            <div class="space-content">
+                <h4>Queen's Chambers Honeymoon Suite</h4>
+
+                <p>
+                    Includes complimentary sparkling wine.
+                </p>
+
+                <span class="included">Included</span>
+            </div>
+
+        </div>
+
+
+        <!-- Getting Ready Rooms -->
+        <div class="package-card space-card">
+
+            <img src="images/getting-ready.jpg"
+                 alt="Bride and Groom Getting Ready Room">
+
+            <div class="space-content">
+                <h4>Getting Ready Rooms</h4>
+
+                <p>
+                    Bride & Groom rooms for a maximum of 4 hours.
+                    Two rooms depending on venue choice.
+                </p>
+
+                <span class="included">Included</span>
+            </div>
+
+        </div>
+
+
+        <!-- Queen's Chamber Platter -->
+        <div class="package-card space-card">
+
+            <img src="images/queens-platter.jpg"
+                 alt="Queen's Chamber Bridal Platter">
+
+            <div class="space-content">
+                <h4>Queen's Chamber Platter</h4>
+
+                <p>
+                    Bridal room & Groom's parties.
+                    Maximum 5 guests per side.
+                </p>
+
+                <span class="included">Included</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- SETUP ESSENTIALS -->
+
+    <div class="package-section">
+
+        <div class="package-title">
+            <span>02</span>
+            <h3>Setup Essentials</h3>
+        </div>
+
+        <div class="package-list">
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Tables, Chairs, Cutlery & Crockery</h4>
+                    <p>Complete dining and seating setup.</p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Full Setup & Breakdown</h4>
+                    <p>
+                        Our team handles the setup and breakdown
+                        of the wedding.
+                    </p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Firewood & Generator</h4>
+                    <p>Included as part of the wedding package.</p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Cash Bar</h4>
+                    <p>Card payments only.</p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- YOUR TEAM -->
+
+    <div class="package-section">
+
+        <div class="package-title">
+            <span>03</span>
+            <h3>Your Team</h3>
+        </div>
+
+        <div class="package-grid">
+
+            <div class="package-card">
+                <h4>On-Site Coordinator</h4>
+                <p>
+                    Planning support and coordination
+                    on your wedding day.
+                </p>
+                <span class="included">Included</span>
+            </div>
+
+            <div class="package-card">
+                <h4>Wedding Staff</h4>
+                <p>
+                    Waiters, barman, cleaners and sous-chef.
+                </p>
+                <span class="included">Included</span>
+            </div>
+
+            <div class="package-card">
+                <h4>In-House DJ</h4>
+                <p>
+                    10 hours from 2:00 PM to midnight,
+                    covering the ceremony, cocktail hour
+                    and reception.
+                </p>
+                <span class="included">Included</span>
+            </div>
+
+            <div class="package-card">
+                <h4>Photographer</h4>
+                <p>
+                    Professional wedding photography
+                    included in the package.
+                </p>
+                <span class="included">Included</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- YOUR CATERING -->
+
+    <div class="package-section">
+
+        <div class="package-title">
+            <span>04</span>
+            <h3>Your Catering</h3>
+        </div>
+
+        <div class="package-list">
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Pre-Ceremony Refreshments</h4>
+                    <p>Water & juice.</p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Welcome Drinks</h4>
+                    <p>
+                        Beers & ciders OR juice & Blue Lagoon.
+                    </p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Sparkling Wine for Toasts</h4>
+                    <p>1 bottle per 10 guests.</p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+            <div class="package-list-item">
+                <div>
+                    <h4>Duchess Menu</h4>
+                    <p>Wedding menu prepared by our catering team.</p>
+                </div>
+                <strong>Included</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHOTOGRAPHY -->
+
+    <div class="package-section">
+
+        <div class="package-title">
+            <span>05</span>
+            <h3>Photography</h3>
+        </div>
+
+        <div class="photo-package">
+
+            <span class="photo-label">ESSENTIAL PACKAGE</span>
+
+            <h3>8-Hour Photography Package</h3>
+
+            <div class="photo-details">
+
+                <div>
+                    <strong>1x</strong>
+                    <span>Photographer</span>
+                </div>
+
+                <div>
+                    <strong>450+</strong>
+                    <span>Professional Photos</span>
+                </div>
+
+                <div>
+                    <strong>1 Year</strong>
+                    <span>Online Photo Gallery</span>
+                </div>
+
+            </div>
+
+            <span class="included large">Included</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- WEDDING ACCOMMODATION -->
+
+    <div class="package-section">
+
+        <div class="package-title">
+            <span>06</span>
+            <h3>Wedding Accommodation</h3>
+        </div>
+
+        <p class="accommodation-intro">
+            Comfortable accommodation is available for the wedding
+            party and guests.
+        </p>
+
+        <div class="accommodation-grid">
+
+            <div class="room-card">
+                <h4>Standard Cottage</h4>
+
+                <div class="room-price">
+                    <span>Per Room</span>
+                    <strong>R1,173.91</strong>
+                </div>
+            </div>
+
+
+            <div class="room-card">
+                <h4>Luxury Cottage</h4>
+
+                <div class="room-price">
+                    <span>Per Room</span>
+                    <strong>R1,608.70</strong>
+                </div>
+            </div>
+
+
+            <div class="room-card">
+                <h4>Standard Room</h4>
+
+                <div class="room-price">
+                    <span>Per Room</span>
+                    <strong>R826.09</strong>
+                </div>
+            </div>
+
+
+            <div class="room-card featured-room">
+
+                <span class="room-badge">HONEYMOON</span>
+
+                <h4>Queen's Chambers</h4>
+
+                <div class="room-price">
+                    <span>Per Room</span>
+                    <strong>R2,782.61</strong>
+                </div>
+
+                <p>
+                    Complimentary sparkling wine included.
+                </p>
+
+            </div>
+
+
+            <div class="room-card">
+
+                <h4>Chambers – Dressing & Sleep Over</h4>
+
+                <div class="room-price">
+                    <span>4 Hours</span>
+                    <strong>R2,782.61</strong>
+                </div>
+
+            </div>
+
+
+            <div class="room-card">
+
+                <h4>Groom's Dressing Room Only</h4>
+
+                <div class="room-price">
+                    <span>4 Hours</span>
+                    <strong>R782.61</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INCLUDED ACCOMMODATION -->
+
+    <div class="included-accommodation">
+
+        <div>
+
+            <span class="section-label">SPECIAL INCLUSION</span>
+
+            <h3>Queen's Chambers Honeymoon Suite</h3>
+
+            <p>
+                The Queen's Chambers Honeymoon Suite is included
+                in the wedding package and comes with complimentary
+                sparkling wine.
+            </p>
+
+        </div>
+
+        <span class="included large">Included</span>
+
+    </div>
+
+
+    <!-- IMPORTANT NOTE -->
+
+    <div class="package-note">
+
+        <div class="note-icon">!</div>
+
+        <div>
+
+            <h3>Please Note</h3>
+
+            <p>
+                All preferred suppliers and items listed within our
+                packages are fixed and cannot be removed, substituted,
+                or exchanged for alternative options.
+            </p>
+
+            <p>
+                You are welcome to add additional services to your
+                quotation; however, the core package inclusions remain
+                non-modifiable.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CALL TO ACTION -->
+
+    <div class="wedding-cta">
+
+        <div>
+
+            <span class="section-label">PLAN YOUR DAY</span>
+
+            <h2>Begin Your Wedding Journey</h2>
+
+            <p>
+                Let Ukuthula Lodge help you create a beautiful
+                celebration surrounded by nature.
+            </p>
+
+        </div>
+
+        <a href="#contact" class="wedding-button">
+            Enquire Now
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- UNIFORMS -->
+<section class="uniform-section">
+
+    <div class="uniform-content">
+        <p class="eyebrow">OUR TEAM</p>
+        <h2>Ukuthula Uniforms</h2>
+
+        <p>
+            Our staff uniforms represent the professional,
+            welcoming and natural identity of Ukuthula Lodge.
+        </p>
+
+        <p>
+            The uniform design will complement the lodge's
+            earthy and natural environment.
+        </p>
+    </div>
+
+    <div class="uniform-image">
+        <img src="images/uniform.jpg" alt="Ukuthula Lodge uniform">
+    </div>
+
+</section>
+
+
+<!-- PEOPLE BEHIND UKUTHULA -->
+<section class="team-section" id="team">
+
+    <div class="team-heading">
+        <p class="small-heading">OUR TEAM</p>
+
+        <h2>The People Behind Ukuthula</h2>
+
+        <p>
+            Meet the passionate people who work together to make
+            Ukuthula Lodge a welcoming, memorable and sustainable
+            destination for every guest.
+        </p>
+    </div>
+
+
+    <div class="team-container">
+
+        <!-- LUTHANDO -->
+        <div class="team-card">
+
+            <img src="images/luthando.jpg" alt="Luthando - Owner of Ukuthula Lodge">
+
+            <div class="team-info">
+
                 <h3>Luthando</h3>
-                <p>Owner</p>
+
+                <h4>Owner</h4>
+
+                <p>
+                    The vision behind Ukuthula Lodge, responsible for
+                    guiding the lodge and bringing its vision to life.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- STEPHANIE -->
+        <div class="team-card">
+
+            <img src="images/stephanie.jpg" alt="Stephanie - Receptionist">
+
+            <div class="team-info">
+
                 <h3>Stephanie</h3>
-                <p>Receptionist</p>
+
+                <h4>Receptionist</h4>
+
+                <p>
+                    Welcomes guests and helps ensure that every visitor
+                    receives a warm and memorable experience.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- MICHAELA -->
+        <div class="team-card">
+
+            <img src="images/michaela.jpg" alt="Michaela - Accountant">
+
+            <div class="team-info">
+
                 <h3>Michaela</h3>
-                <p>Game Driver</p>
+
+                <h4>Accountant</h4>
+
+                <p>
+                    Manages the lodge's financial administration and
+                    helps keep its financial operations organised.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+    
+<!-- GABBY -->
+<div class="team-card">
+
+    <img src="images/gabby.jpg" alt="Gabby - Ukuthula Lodge Team Member">
+
+    <div class="team-info">
+
+        <h3>Gabby</h3>
+
+        <h4>General Management</h4>
+
+        <p>
+            Gabby is part of the dedicated team behind Ukuthula Lodge,
+            helping create a welcoming and memorable experience for our guests.
+        </p>
+
+    </div>
+
+</div>
+
+
+        <!-- COURTNEY -->
+        <div class="team-card">
+
+            <img src="images/courtney.jpg" alt="Courtney - Chef">
+
+            <div class="team-info">
+
                 <h3>Courtney</h3>
-                <p>Chef</p>
+
+                <h4>Chef</h4>
+
+                <p>
+                    Creates delicious meals and contributes to the
+                    memorable dining experience at Ukuthula Lodge.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- CHANTE -->
+        <div class="team-card">
+
+            <img src="images/chante.jpg" alt="Chante - Housekeeper">
+
+            <div class="team-info">
+
                 <h3>Chante</h3>
-                <p>Housekeeper</p>
+
+                <h4>Housekeeper</h4>
+
+                <p>
+                    Keeps guest spaces clean, comfortable and welcoming
+                    throughout their stay.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- ELKE -->
+        <div class="team-card">
+
+            <img src="images/elke.jpg" alt="Elke - Eco Expert">
+
+            <div class="team-info">
+
                 <h3>Elke</h3>
-                <p>Eco Expert</p>
+
+                <h4>Eco Expert</h4>
+
+                <p>
+                    Helps Ukuthula maintain its commitment to
+                    environmentally responsible practices.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- OMOLEMO -->
+        <div class="team-card">
+
+            <img src="images/omolemo.jpg" alt="Omolemo - Masseuse">
+
+            <div class="team-info">
+
                 <h3>Omolemo</h3>
-                <p>Masseuse</p>
+
+                <h4>Masseuse</h4>
+
+                <p>
+                    Provides relaxing spa and wellness experiences
+                    designed to help guests unwind.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- THUTO -->
+        <div class="team-card">
+
+            <img src="images/thuto.jpg" alt="Thuto - Groundskeeper">
+
+            <div class="team-info">
+
                 <h3>Thuto</h3>
-                <p>Groundskeeper</p>
+
+                <h4>Chiefengineer</h4>
+
+                <p>
+                    Maintains the lodge grounds and helps preserve
+                    the natural beauty of the surroundings.
+                </p>
+
             </div>
 
-            <div class="staff-card">
-                <div class="staff-icon">👤</div>
+        </div>
+
+
+        <!-- CHRISKE -->
+        <div class="team-card">
+
+            <img src="images/chriske.jpg" alt="Chriske - Service Manager">
+
+            <div class="team-info">
+
                 <h3>Chriske</h3>
-                <p>Service Manager</p>
-            </div>
 
-        </div>
+                <h4>Service Manager</h4>
 
-    </section>
-
-
-    <!-- SUSTAINABILITY -->
-    <section id="sustainability" class="section sustainability">
-
-        <div class="section-heading">
-            <p>OUR COMMITMENT</p>
-            <h2>Eco-Friendly Hospitality</h2>
-        </div>
-
-        <div class="sustainability-content">
-
-            <p>
-                At Ukuthula Lodge, we believe that tourism should
-                protect and celebrate the natural environment.
-                Our eco-lodge concept focuses on creating memorable
-                experiences while respecting the surrounding environment.
-            </p>
-
-            <div class="eco-points">
-
-                <div>
-                    <span>🌱</span>
-                    <h3>Protect Nature</h3>
-                    <p>Respecting and protecting the natural environment.</p>
-                </div>
-
-                <div>
-                    <span>♻️</span>
-                    <h3>Reduce Waste</h3>
-                    <p>Encouraging responsible use of resources.</p>
-                </div>
-
-                <div>
-                    <span>🐾</span>
-                    <h3>Wildlife Care</h3>
-                    <p>Promoting responsible interaction with wildlife.</p>
-                </div>
+                <p>
+                    Coordinates guest services and helps maintain
+                    high standards of service at the lodge.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
+<!-- CTA -->
+<section class="cta">
 
-        <div class="section-heading">
-            <p>PLAN YOUR VISIT</p>
-            <h2>Contact Ukuthula Lodge</h2>
-        </div>
+    <div>
+        <p class="eyebrow">YOUR ESCAPE AWAITS</p>
 
-        <div class="contact-container">
-
-            <div>
-                <h3>📍 Location</h3>
-                <p>KwaZulu-Natal, South Africa</p>
-            </div>
-
-            <div>
-                <h3>📞 Contact</h3>
-                <p>Contact details coming soon</p>
-            </div>
-
-            <div>
-                <h3>📧 Email</h3>
-                <p>Email address coming soon</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-logo">
-            <h2>UKUTHULA LODGE</h2>
-            <p>WHEN NATURE MEETS BEAUTY</p>
-        </div>
+        <h2>Come Experience Ukuthula</h2>
 
         <p>
-            © 2026 Ukuthula Lodge. All Rights Reserved.
+            When nature meets beauty, unforgettable memories begin.
         </p>
 
-        <p>
-            KwaZulu-Natal, South Africa
-        </p>
+        <a href="#book" class="button">Plan Your Stay</a>
+    </div>
 
-    </footer>
+</section>
 
 
-    <script src="script.js"></script>
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+
+    <div class="section-heading">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2>Contact Ukuthula Lodge</h2>
+    </div>
+
+    <div class="contact-grid">
+
+        <div>
+            <h3>Location</h3>
+            <p>KwaZulu-Natal, South Africa</p>
+        </div>
+
+        <div>
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/ukuthula_lodge"
+               target="_blank">
+                @ukuthula_lodge
+            </a>
+        </div>
+
+        <div>
+            <h3>Bookings</h3>
+            <p>Contact us for availability and enquiries.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        UKUTHULA LODGE
+    </div>
+
+    <p>WHEN NATURE MEETS BEAUTY</p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#accommodation">Accommodation</a>
+        <a href="#activities">Activities</a>
+        <a href="#sustainability">Sustainability</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <a href="https://www.instagram.com/ukuthula_lodge"
+       target="_blank">
+        Instagram
+    </a>
+
+    <p class="copyright">
+        © 2026 Ukuthula Lodge. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
