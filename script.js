@@ -26,7 +26,59 @@ navLinks.forEach(link => {
     });
 
 });
+<script>
+function searchWebsite() {
 
+    const searchBox = document.getElementById("websiteSearch");
+    const searchTerm = searchBox.value.toLowerCase().trim();
+
+    if (searchTerm === "") {
+        alert("Please enter something to search.");
+        return;
+    }
+
+    // Search through the main sections of the website
+    const elements = document.querySelectorAll(
+        "section, article, .card, .room-card, .activity-card, .menu-item"
+    );
+
+    let found = false;
+
+    elements.forEach(element => {
+
+        const text = element.innerText.toLowerCase();
+
+        if (!found && text.includes(searchTerm)) {
+
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            element.style.transition = "0.3s";
+            element.style.boxShadow = "0 0 25px rgba(138, 118, 87, 0.8)";
+
+            setTimeout(() => {
+                element.style.boxShadow = "";
+            }, 2500);
+
+            found = true;
+        }
+    });
+
+    if (!found) {
+        alert("Sorry, we couldn't find '" + searchTerm + "' on the website.");
+    }
+}
+
+
+// Press ENTER to search
+document.getElementById("websiteSearch").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        searchWebsite();
+    }
+});
+</script>
 
 /* =========================================
    BOOKING / AVAILABILITY
