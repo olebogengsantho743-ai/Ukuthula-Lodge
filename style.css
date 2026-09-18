@@ -1,20 +1,34 @@
 /* =====================================================
    UKUTHULA LODGE
-   WHEN NATURE MEETS BEAUTY
-   ECO / OLIVE GREEN COLOUR THEME
+   WHEN NATURE MEETS TRANQUILITY
+   ECO LODGE / OLIVE GREEN THEME
    ===================================================== */
 
+/* =========================
+   COLOUR PALETTE
+========================= */
+
 :root {
-    --dark: #263A29;
-    --dark-brown: #3F5138;
-    --brown: #596B45;
-    --khaki: #7A8656;
-    --light-khaki: #B7B98A;
-    --cream: #F1F0E3;
+    --forest: #243B2A;
+    --deep-green: #304A32;
+    --olive: #596B3F;
+    --olive-light: #788653;
+    --sage: #A4AD7C;
+    --khaki: #C5C6A2;
+    --cream: #F3F1E3;
+    --light-green: #E5E7D3;
     --white: #ffffff;
-    --border: #C8C9A8;
-    --text: #354333;
+    --text: #354235;
+    --muted: #66705B;
+    --border: #C9CDAF;
+    --gold: #B29A5B;
+    --shadow: rgba(36, 59, 42, 0.16);
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -26,9 +40,59 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
 /* =========================
-   DOPE SEARCH BAR
-   ========================= */
+   TOP BAR
+========================= */
+
+.top-bar {
+    background: var(--forest);
+    color: var(--white);
+    padding: 10px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.top-bar a {
+    color: var(--khaki);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.top-bar a:hover {
+    color: var(--white);
+}
+
+
+/* =========================
+   SEARCH BAR
+========================= */
 
 .search-container {
     display: flex;
@@ -36,11 +100,11 @@ html {
     align-items: center;
     max-width: 600px;
     margin: 25px auto;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #B7B98A;
+    background: var(--white);
+    border: 1px solid var(--sage);
     border-radius: 50px;
     padding: 6px;
-    box-shadow: 0 8px 25px rgba(38, 58, 41, 0.18);
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .search-container input {
@@ -50,11 +114,11 @@ html {
     background: transparent;
     padding: 14px 20px;
     font-size: 16px;
-    color: #354333;
+    color: var(--text);
 }
 
 .search-container input::placeholder {
-    color: #7A8656;
+    color: var(--muted);
 }
 
 .search-container button {
@@ -62,134 +126,1048 @@ html {
     border-radius: 50%;
     width: 48px;
     height: 48px;
-    background: #596B45;
-    color: white;
+    background: var(--olive);
+    color: var(--white);
     font-size: 19px;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-/* Button hover effect */
 .search-container button:hover {
-    background: #3F5138;
+    background: var(--forest);
     transform: scale(1.05);
+}
+
+#searchMessage {
+    text-align: center;
+    color: var(--olive);
+    font-weight: 600;
+    margin: -10px auto 15px;
 }
 
 
 /* =========================
-   MOBILE / RESPONSIVE
-   ========================= */
+   SEARCH RESULT HIGHLIGHT
+========================= */
+
+.search-highlight {
+    outline: 3px solid var(--gold);
+    box-shadow: 0 0 25px rgba(178, 154, 91, 0.45);
+    transition: 0.3s ease;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: var(--deep-green);
+    color: var(--white);
+    min-height: 80px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo span {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--white);
+}
+
+.logo small {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--khaki);
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--khaki);
+}
+
+.nav-button {
+    background: var(--olive-light);
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+.nav-button:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 78vh;
+    background:
+        linear-gradient(
+            rgba(30, 55, 36, 0.50),
+            rgba(30, 55, 36, 0.65)
+        ),
+        url("images/hero.jpg") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-overlay {
+    max-width: 850px;
+    padding: 40px 20px;
+}
+
+.hero-overlay p {
+    color: var(--khaki);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.hero-overlay h1 {
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 1;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.hero-overlay h2 {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.button {
+    display: inline-block;
+    background: var(--olive);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   BOOKING BAR
+========================= */
+
+.booking-bar {
+    background: var(--white);
+    max-width: 1100px;
+    margin: -45px auto 70px;
+    padding: 25px 30px;
+    position: relative;
+    z-index: 10;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    box-shadow: 0 12px 35px var(--shadow);
+    border-top: 5px solid var(--olive);
+}
+
+.booking-bar div {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-bar label {
+    color: var(--olive);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.booking-bar input,
+.booking-bar select {
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 7px;
+    background: var(--cream);
+    color: var(--text);
+    outline: none;
+}
+
+.booking-bar input:focus,
+.booking-bar select:focus {
+    border-color: var(--olive);
+}
+
+.booking-bar button {
+    align-self: end;
+    border: none;
+    background: var(--olive);
+    color: var(--white);
+    padding: 13px 20px;
+    border-radius: 7px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.booking-bar button:hover {
+    background: var(--forest);
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+    padding: 90px 8%;
+}
 
 .section-image img {
-    height: 350px;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.section-content {
+    padding: 20px;
+}
+
+.eyebrow {
+    color: var(--olive);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
 }
 
 .section-content h2 {
-    font-size: 34px;
+    color: var(--forest);
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
+.section-content p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.text-link {
+    color: var(--olive);
+    font-weight: 800;
+}
+
+.text-link:hover {
+    color: var(--gold);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
 .features {
-    grid-template-columns: 1fr;
-    padding: 45px 8%;
+    background: var(--forest);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 55px 8%;
 }
 
 .feature {
-    border-right: none;
-    border-bottom: 1px solid rgba(63, 81, 56, 0.2);
+    text-align: center;
+    padding: 20px 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .feature:last-child {
-    border-bottom: none;
+    border-right: none;
 }
 
-.card-grid,
+.feature h3 {
+    color: var(--khaki);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #E4E8D8;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 70px 8%;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    border: 1px solid var(--border);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(36, 59, 42, 0.22);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card h3 {
+    color: var(--forest);
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   ACTIVITY CARDS
+========================= */
+
 .activity-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 70px 8%;
 }
 
-/* SAME IMAGE SIZE ON MOBILE TOO */
+.activity-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    border: 1px solid var(--border);
+    transition: 0.3s ease;
+}
 
-.card img,
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
 .activity-card img {
+    width: 100%;
     height: 250px;
+    object-fit: cover;
+}
+
+.activity-card h3 {
+    color: var(--forest);
+    padding: 20px 20px 5px;
+}
+
+.activity-card p {
+    color: var(--muted);
+    padding: 0 20px 20px;
+}
+
+
+/* =========================
+   IMAGE BREAK
+========================= */
+
+.image-break {
+    min-height: 450px;
+    background:
+        linear-gradient(
+            rgba(36, 59, 42, 0.55),
+            rgba(36, 59, 42, 0.65)
+        ),
+        url("images/lodge.jpg") center/cover no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.image-break h2 {
+    font-size: 52px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   SUSTAINABILITY
+========================= */
+
+.sustainability {
+    width: 100%;
+    background: var(--light-green);
+    padding: 80px 8%;
+}
+
+.sustainability h2 {
+    color: var(--forest);
+}
+
+.sustainability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.sustainability-card {
+    background: var(--white);
+    border-left: 5px solid var(--olive);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.sustainability-card h3 {
+    color: var(--olive);
+    margin-bottom: 8px;
+}
+
+.sustainability-card p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-section {
+    padding: 90px 8%;
+    background: var(--cream);
+}
+
+.video-content {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.video-content h2 {
+    color: var(--forest);
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.video-content p {
+    color: var(--muted);
+}
+
+.video-placeholder {
+    margin-top: 35px;
+    height: 400px;
+    background: var(--forest);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--khaki);
+}
+
+
+/* =========================
+   HOTEL OVERVIEW
+========================= */
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 70px 8%;
+}
+
+.overview-grid > div {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--olive);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 7px 22px var(--shadow);
+}
+
+.overview-grid h3 {
+    color: var(--forest);
+    margin-bottom: 10px;
+}
+
+.overview-grid p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   LOYALTY
+========================= */
+
+.loyalty-section {
+    padding: 90px 8%;
+    background: var(--deep-green);
+}
+
+.loyalty-card {
+    max-width: 1000px;
+    margin: auto;
+    background: var(--white);
+    padding: 45px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.loyalty-card h2 {
+    color: var(--forest);
+    font-size: 38px;
+}
+
+.loyalty-card p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   PARTNERSHIPS
+========================= */
+
+.partnership-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 70px 8%;
+}
+
+.partnership-box > div {
+    background: var(--light-green);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.partnership-box h3 {
+    color: var(--forest);
+    margin-bottom: 10px;
+}
+
+.partnership-box p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   UNIFORMS
+========================= */
+
+.uniform-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--forest);
+    color: var(--white);
+}
+
+.uniform-content {
+    padding: 90px 10%;
+}
+
+.uniform-content h2 {
+    color: var(--khaki);
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.uniform-content p {
+    color: #E4E8D8;
+}
+
+.uniform-image {
+    min-height: 450px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* =========================
+   PEOPLE BEHIND UKUTHULA
+   COLOUR ONLY
+   No image dimensions changed
+========================= */
+
+.team-section {
+    padding: 90px 8%;
+    background: var(--cream);
+}
+
+.team-section h2 {
+    color: var(--forest);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.team-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.team-card img {
     width: 100%;
     object-fit: cover;
 }
 
-.image-break {
-    min-height: 350px;
+.team-card h3 {
+    color: var(--forest);
+    padding: 18px 20px 3px;
 }
 
-.image-break h2 {
-    font-size: 34px;
+.team-card p {
+    color: var(--olive);
+    padding: 0 20px 20px;
+    font-weight: 600;
 }
 
-.sustainability {
-    width: 100%;
+
+/* =========================
+   WEDDING PACKAGE
+   ECO COLOUR THEME
+   ========================= */
+
+.wedding-package {
+    background: var(--cream);
+    color: var(--text);
 }
 
-.sustainability-grid {
-    grid-template-columns: 1fr;
+.wedding-package h2,
+.wedding-package h3 {
+    color: var(--forest);
 }
 
-.video-section {
-    padding: 70px 6%;
+.wedding-package p,
+.wedding-package li {
+    color: var(--muted);
 }
 
-.video-content h2 {
-    font-size: 34px;
+.wedding-package strong {
+    color: var(--olive);
 }
 
-.video-placeholder {
-    height: 280px;
+.wedding-package .package-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--olive);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
-.overview-grid {
-    grid-template-columns: 1fr;
+.wedding-package .package-list-item {
+    border-bottom: 1px solid var(--border);
 }
 
-.loyalty-section {
-    padding: 70px 6%;
+.wedding-package .included-accommodation {
+    background: var(--light-green);
+    border-left: 5px solid var(--olive);
 }
 
-.loyalty-card {
-    padding: 35px 25px;
-    flex-direction: column;
-    text-align: center;
+.wedding-package .catering-box {
+    background: var(--light-green);
 }
 
-.loyalty-card h2 {
-    font-size: 32px;
+.wedding-package .button {
+    background: var(--olive);
 }
 
-.partnership-box {
-    grid-template-columns: 1fr;
+.wedding-package .button:hover {
+    background: var(--forest);
 }
 
-.uniform-section {
-    grid-template-columns: 1fr;
-}
 
-.uniform-content {
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     padding: 70px 8%;
 }
 
-.uniform-content h2 {
-    font-size: 34px;
+.contact-grid > div {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 7px 22px var(--shadow);
 }
 
-.uniform-image {
-    height: 350px;
+.contact-grid h3 {
+    color: var(--forest);
+    margin-bottom: 10px;
 }
 
-.team-grid {
-    grid-template-columns: 1fr;
+.contact-grid p {
+    color: var(--muted);
 }
+
+
+/* =========================
+   CTA
+========================= */
 
 .cta {
-    padding: 80px 6%;
+    background:
+        linear-gradient(
+            rgba(36, 59, 42, 0.90),
+            rgba(36, 59, 42, 0.90)
+        );
+
+    color: var(--white);
+    text-align: center;
+    padding: 100px 8%;
 }
 
 .cta h2 {
-    font-size: 35px;
+    font-size: 48px;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.cta p {
+    color: var(--khaki);
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #1B2D20;
+    color: var(--white);
+    padding: 50px 8%;
+}
+
+footer h3 {
+    color: var(--khaki);
+}
+
+footer p {
+    color: #CBD2C1;
+}
+
+footer a {
+    color: #CBD2C1;
+    transition: 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--khaki);
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 15px 6%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--forest);
+        flex-direction: column;
+        padding: 25px;
+        gap: 18px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .top-bar {
+        padding: 10px 6%;
+    }
+
+    .search-container {
+        margin: 20px 6%;
+    }
+
+    .booking-bar {
+        grid-template-columns: 1fr 1fr;
+        margin: -30px 6% 50px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        padding: 45px 8%;
+    }
+
+    .feature {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 25px;
+    }
+
+    .feature:last-child {
+        border-bottom: none;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sustainability-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partnership-box {
+        grid-template-columns: 1fr;
+    }
+
+    .uniform-section {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 600px) {
+
+    .top-bar {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero-overlay h1 {
+        font-size: 42px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 17px;
+    }
+
+    .booking-bar {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+
+    .section-image img {
+        height: 350px;
+    }
+
+    .section-content h2 {
+        font-size: 34px;
+    }
+
+    .card-grid,
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /*
+       SAME ACTIVITY/CARD IMAGE SIZE ON MOBILE
+    */
+
+    .card img,
+    .activity-card img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image-break {
+        min-height: 350px;
+    }
+
+    .image-break h2 {
+        font-size: 34px;
+        padding: 20px;
+    }
+
+    .sustainability {
+        width: 100%;
+        padding: 60px 6%;
+    }
+
+    .sustainability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-section {
+        padding: 70px 6%;
+    }
+
+    .video-content h2 {
+        font-size: 34px;
+    }
+
+    .video-placeholder {
+        height: 280px;
+    }
+
+    .loyalty-section {
+        padding: 70px 6%;
+    }
+
+    .loyalty-card {
+        padding: 35px 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .loyalty-card h2 {
+        font-size: 32px;
+    }
+
+    .uniform-content {
+        padding: 70px 8%;
+    }
+
+    .uniform-content h2 {
+        font-size: 34px;
+    }
+
+    .uniform-image {
+        height: 350px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta {
+        padding: 80px 6%;
+    }
+
+    .cta h2 {
+        font-size: 35px;
+    }
 }
