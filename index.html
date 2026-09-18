@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ukuthula Lodge | Where nature meets tranquility</title>
+    <title>Ukuthula Lodge | Where Nature Meets Tranquility</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,16 +16,17 @@
         Instagram
     </a>
 </div>
+
 <!-- SEARCH BAR -->
 <div class="search-container">
     <input 
         type="text" 
         id="websiteSearch" 
         placeholder="Search Ukuthula Lodge..."
+        onkeyup="searchWebsite()"
     >
     <button onclick="searchWebsite()">🔍</button>
-</div>  
-<div id="searchMessage"></div>
+</div>
 
 <!-- HEADER -->
 <header>
@@ -156,12 +157,12 @@
                 <h3>King Room</h3>
                 <p>A comfortable room for guests looking for a relaxing stay.</p>
             </div>
-          <!-- King Room Price -->
+            <!-- King Room Price -->
 <div class="room-price">
     <p>Persons: 2</p>
     <h3>From R3,813.00</h3>
     <span>Per room/nightly</span>
-</div>
+           </div>
         </div>
 
         <div class="card">
@@ -170,12 +171,13 @@
                 <h3>Suite</h3>
                 <p>A spacious option for guests wanting additional comfort.</p>
             </div>
-          <!-- Suite Price -->
+            <!-- Suite Price -->
 <div class="room-price">
     <p>Persons: 2</p>
     <h3>From R4,728.00</h3>
     <span>Per suite/nightly</span>
 </div>
+
         </div>
 
         <div class="card">
@@ -184,13 +186,13 @@
                 <h3>Junior Suite</h3>
                 <p>A stylish and peaceful space for your getaway.</p>
             </div>
-          <!-- Junior Suite Price -->
+            <!-- Junior Suite Price -->
 <div class="room-price">
     <p>Persons: 2</p>
     <h3>From R4,728.00</h3>
     <span>Per suite/nightly</span>
 </div>
-        </div>
+</div>
 
         <div class="card">
             <img src="images/superior-king.jpg" alt="Superior King">
@@ -198,7 +200,7 @@
                 <h3>Superior King</h3>
                 <p>A premium room experience surrounded by nature.</p>
             </div>
-          <!-- Superior King Suite Price -->
+            <!-- Superior King Suite Price -->
 <div class="room-price">
     <p>Persons: 2</p>
     <h3>From R5,248.00</h3>
@@ -452,7 +454,7 @@
             <div class="card-content">
                 <h3>Umngqusho & Chicken</h3>
             </div>
-          <div class="meal-price">
+            <div class="meal-price">
     <h3>Umngqusho &amp; Chicken Stew</h3>
     <p>Samp and beans, chicken stew, chakalaka, seasonal vegetables and a side of fresh salad.</p>
     <strong>R245</strong>
@@ -698,15 +700,9 @@
      <p>
        help to preserve marine life and water
      </p>
-    </div>
 
-  <div>
-     <h3>Green Cape</h3>
-     <p>
-        Promote the green economy in South Africa and across the African continent.
-    </p>
-  </div>
-  
+
+
 </section>
 
 <!-- ==================== WEDDING PACKAGE ==================== -->
@@ -1326,13 +1322,13 @@
         <!-- COURTNEY -->
         <div class="team-card">
 
-            <img src="images/courtney.jpg" alt="Courtney - Chef">
+            <img src="images/courtney.jpg" alt="Courtney - Food and beverage manager">
 
             <div class="team-info">
 
                 <h3>Courtney</h3>
 
-                <h4>Chef</h4>
+                <h4>Food and beverage manager</h4>
 
                 <p>
                     Creates delicious meals and contributes to the
@@ -1347,13 +1343,13 @@
         <!-- CHANTE -->
         <div class="team-card">
 
-            <img src="images/chante.jpg" alt="Chante - Housekeeper">
+            <img src="images/chante.jpg" alt="Chante - Housekeeping manager">
 
             <div class="team-info">
 
                 <h3>Chante</h3>
 
-                <h4>Housekeeping manager</h4>
+                <h4>Housekeepind manager</h4>
 
                 <p>
                     Keeps guest spaces clean, comfortable and welcoming
@@ -1389,13 +1385,13 @@
         <!-- OMOLEMO -->
         <div class="team-card">
 
-            <img src="images/omolemo.jpg" alt="Omolemo - Masseuse">
+            <img src="images/omolemo.jpg" alt="Omolemo - Sales and marketing manager">
 
             <div class="team-info">
 
                 <h3>Omolemo</h3>
 
-                <h4>Sales and marketing manager</h4>
+                <h4>Sales and mareting manager</h4>
 
                 <p>
                     Provides relaxing spa and wellness experiences
@@ -1410,13 +1406,13 @@
         <!-- THUTO -->
         <div class="team-card">
 
-            <img src="images/thuto.jpg" alt="Thuto - Groundskeeper">
+            <img src="images/thuto.jpg" alt="Thuto - Safe and security manager">
 
             <div class="team-info">
 
                 <h3>Thuto</h3>
 
-                <h4>Safety and security manager</h4>
+                <h4>Safe and security manager</h4>
 
                 <p>
                     Maintains the lodge grounds and helps preserve
@@ -1532,111 +1528,6 @@
 </footer>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const searchInput = document.getElementById("websiteSearch");
-    const searchButton = document.getElementById("searchButton");
-    const searchMessage = document.getElementById("searchMessage");
-
-    function searchWebsite() {
-
-        const searchTerm = searchInput.value
-            .toLowerCase()
-            .trim();
-
-        // Clear previous message
-        searchMessage.textContent = "";
-
-        if (searchTerm === "") {
-            searchMessage.textContent = "Please type something to search.";
-            return;
-        }
-
-        /*
-         * These are the parts of your website that can be searched.
-         */
-        const searchableItems = document.querySelectorAll(`
-            .card,
-            .activity-card,
-            .sustainability-card,
-            .platform,
-            .overview-grid > div,
-            .team-card,
-            .package-card,
-            .package-list-item,
-            .room-card,
-            .included-accommodation,
-            .catering-box,
-            .video-content,
-            .uniform-section,
-            .loyalty-card,
-            .contact-grid > div,
-            .partnership-box > div,
-            .about
-        `);
-
-        let matches = [];
-
-        searchableItems.forEach(function (item) {
-
-            const text = item.innerText.toLowerCase();
-
-            if (text.includes(searchTerm)) {
-                matches.push(item);
-            }
-        });
-
-        // Nothing found
-        if (matches.length === 0) {
-            searchMessage.textContent =
-                "No results found for \"" + searchInput.value + "\".";
-
-            return;
-        }
-
-        /*
-         * If several sections match, choose the smallest
-         * matching section/card first.
-         */
-        matches.sort(function (a, b) {
-            return a.innerText.length - b.innerText.length;
-        });
-
-        const result = matches[0];
-
-        // Scroll to the result
-        result.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-        // Highlight the result
-        result.classList.add("search-highlight");
-
-        // Remove highlight after 3 seconds
-        setTimeout(function () {
-            result.classList.remove("search-highlight");
-        }, 3000);
-
-        searchMessage.textContent =
-            "Showing results for \"" + searchInput.value + "\".";
-    }
-
-    // Search button
-    searchButton.addEventListener("click", searchWebsite);
-
-    // Press ENTER to search
-    searchInput.addEventListener("keydown", function (event) {
-
-        if (event.key === "Enter") {
-            event.preventDefault();
-            searchWebsite();
-        }
-
-    });
-
-});
 <script src="script.js"></script>
 
 </body>
