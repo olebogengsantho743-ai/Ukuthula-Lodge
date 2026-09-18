@@ -1,84 +1,164 @@
-```javascript
 /* =========================================
    MOBILE MENU
 ========================================= */
 
 const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+const mainNav = document.getElementById("navMenu");
 
-menuToggle.addEventListener("click", () => {
+if (menuToggle && mainNav) {
 
-    mainNav.classList.toggle("active");
+    menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+    });
 
-});
+}
 
 
 /* Close mobile menu after clicking a link */
 
-const navLinks = document.querySelectorAll(".nav a");
+const navLinks = document.querySelectorAll("#navMenu a");
 
 navLinks.forEach(link => {
 
     link.addEventListener("click", () => {
 
-        mainNav.classList.remove("active");
+        if (mainNav) {
+            mainNav.classList.remove("active");
+        }
 
     });
 
 });
-<script>
+
+
+/* =========================================
+   WEBSITE SEARCH
+========================================= */
+
 function searchWebsite() {
 
     const searchBox = document.getElementById("websiteSearch");
-    const searchTerm = searchBox.value.toLowerCase().trim();
 
-    if (searchTerm === "") {
-        alert("Please enter something to search.");
+    if (!searchBox) {
         return;
     }
 
-    // Search through the main sections of the website
+    const searchTerm = searchBox.value.toLowerCase().trim();
+
+    if (searchTerm === "") {
+
+        alert("Please enter something to search.");
+
+        return;
+    }
+
+
+    /*
+       Search smaller elements first.
+       This helps the search find the exact
+       room, activity, meal, etc.
+    */
+
     const elements = document.querySelectorAll(
-        "section, article, .card, .room-card, .activity-card, .menu-item"
+        ".card, " +
+        ".activity-card, " +
+        ".sustainability-card, " +
+        ".platform, " +
+        ".overview-grid > div, " +
+        ".team-card, " +
+        ".package-card, " +
+        ".package-list-item, " +
+        ".room-card, " +
+        ".included-accommodation, " +
+        ".catering-box, " +
+        ".video-content, " +
+        ".uniform-section, " +
+        ".loyalty-card, " +
+        ".contact-grid > div, " +
+        ".partnership-box > div, " +
+        ".about"
     );
 
-    let found = false;
 
-    elements.forEach(element => {
+    let foundElement = null;
+
+
+    for (const element of elements) {
 
         const text = element.innerText.toLowerCase();
 
-        if (!found && text.includes(searchTerm)) {
+        if (text.includes(searchTerm)) {
 
-            element.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            foundElement = element;
 
-            element.style.transition = "0.3s";
-            element.style.boxShadow = "0 0 25px rgba(138, 118, 87, 0.8)";
-
-            setTimeout(() => {
-                element.style.boxShadow = "";
-            }, 2500);
-
-            found = true;
+            break;
         }
-    });
-
-    if (!found) {
-        alert("Sorry, we couldn't find '" + searchTerm + "' on the website.");
     }
+
+
+    if (foundElement) {
+
+        foundElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
+        /*
+           Highlight the result
+        */
+
+        foundElement.style.transition = "0.3s ease";
+
+        foundElement.style.boxShadow =
+            "0 0 30px rgba(138, 118, 87, 0.9)";
+
+        foundElement.style.transform = "scale(1.02)";
+
+
+        setTimeout(() => {
+
+            foundElement.style.boxShadow = "";
+            foundElement.style.transform = "";
+
+        }, 2500);
+
+
+    } else {
+
+        alert(
+            "Sorry, we couldn't find '" +
+            searchTerm +
+            "' on the website."
+        );
+
+    }
+
 }
 
 
-// Press ENTER to search
-document.getElementById("websiteSearch").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        searchWebsite();
-    }
-});
-</script>
+/* =========================================
+   ENTER KEY FOR SEARCH
+========================================= */
+
+const searchBox = document.getElementById("websiteSearch");
+
+if (searchBox) {
+
+    searchBox.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            searchWebsite();
+
+        }
+
+    });
+
+}
+
 
 /* =========================================
    BOOKING / AVAILABILITY
@@ -86,17 +166,26 @@ document.getElementById("websiteSearch").addEventListener("keypress", function(e
 
 function checkAvailability() {
 
-    const checkIn = document.getElementById("checkIn").value;
-    const checkOut = document.getElementById("checkOut").value;
-    const guests = document.getElementById("guests").value;
+    const checkInElement = document.getElementById("checkIn");
+    const checkOutElement = document.getElementById("checkOut");
+    const guestsElement = document.getElementById("guests");
 
-    const message = document.getElementById("bookingMessage");
+
+    if (!checkInElement || !checkOutElement || !guestsElement) {
+        return;
+    }
+
+
+    const checkIn = checkInElement.value;
+    const checkOut = checkOutElement.value;
+    const guests = guestsElement.value;
 
 
     if (!checkIn || !checkOut) {
 
-        message.textContent =
-            "Please select your check-in and check-out dates.";
+        alert(
+            "Please select your check-in and check-out dates."
+        );
 
         return;
     }
@@ -108,15 +197,17 @@ function checkAvailability() {
 
     if (endDate <= startDate) {
 
-        message.textContent =
-            "Check-out must be after check-in.";
+        alert(
+            "Check-out must be after check-in."
+        );
 
         return;
     }
 
 
-    message.textContent =
-        `Thank you! Your enquiry for ${guests} has been prepared. Please contact Ukuthula Lodge to confirm availability.`;
+    alert(
+        `Thank you! Your enquiry for ${guests} guest(s) has been prepared. Please contact Ukuthula Lodge to confirm availability.`
+    );
 
 }
 
@@ -127,19 +218,50 @@ function checkAvailability() {
 
 const today = new Date().toISOString().split("T")[0];
 
-document.getElementById("checkIn").setAttribute("min", today);
-document.getElementById("checkOut").setAttribute("min", today);
+const checkInInput = document.getElementById("checkIn");
+const checkOutInput = document.getElementById("checkOut");
+
+
+if (checkInInput) {
+
+    checkInInput.setAttribute("min", today);
+
+}
+
+
+if (checkOutInput) {
+
+    checkOutInput.setAttribute("min", today);
+
+}
 
 
 /* =========================================
    UPDATE CHECK-OUT DATE
 ========================================= */
 
-document.getElementById("checkIn").addEventListener("change", function () {
+if (checkInInput && checkOutInput) {
 
-    document
-        .getElementById("checkOut")
-        .setAttribute("min", this.value);
+    checkInInput.addEventListener("change", function() {
 
-});
-```
+        checkOutInput.setAttribute(
+            "min",
+            this.value
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   LOYALTY PROGRAMME
+========================================= */
+
+function loyaltyMessage() {
+
+    alert(
+        "Thank you for your interest in the Ukuthula Loyalty Programme! Please contact Ukuthula Lodge for more information about membership and benefits."
+    );
+
+}
