@@ -1531,7 +1531,115 @@
 </footer>
 
 
-<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput = document.getElementById("websiteSearch");
+    const searchButton = document.getElementById("searchButton");
+    const searchMessage = document.getElementById("searchMessage");
+
+    function searchWebsite() {
+
+        const searchTerm = searchInput.value
+            .toLowerCase()
+            .trim();
+
+        // Clear previous message
+        searchMessage.textContent = "";
+
+        if (searchTerm === "") {
+            searchMessage.textContent = "Please type something to search.";
+            return;
+        }
+
+        /*
+         * These are the parts of your website that can be searched.
+         */
+        const searchableItems = document.querySelectorAll(`
+            .card,
+            .activity-card,
+            .sustainability-card,
+            .platform,
+            .overview-grid > div,
+            .team-card,
+            .package-card,
+            .package-list-item,
+            .room-card,
+            .included-accommodation,
+            .catering-box,
+            .video-content,
+            .uniform-section,
+            .loyalty-card,
+            .contact-grid > div,
+            .partnership-box > div,
+            .about
+        `);
+
+        let matches = [];
+
+        searchableItems.forEach(function (item) {
+
+            const text = item.innerText.toLowerCase();
+
+            if (text.includes(searchTerm)) {
+                matches.push(item);
+            }
+        });
+
+        // Nothing found
+        if (matches.length === 0) {
+            searchMessage.textContent =
+                "No results found for \"" + searchInput.value + "\".";
+
+            return;
+        }
+
+        /*
+         * If several sections match, choose the smallest
+         * matching section/card first.
+         */
+        matches.sort(function (a, b) {
+            return a.innerText.length - b.innerText.length;
+        });
+
+        const result = matches[0];
+
+        // Scroll to the result
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        // Highlight the result
+        result.classList.add("search-highlight");
+
+        // Remove highlight after 3 seconds
+        setTimeout(function () {
+            result.classList.remove("search-highlight");
+        }, 3000);
+
+        searchMessage.textContent =
+            "Showing results for \"" + searchInput.value + "\".";
+    }
+
+    // Search button
+    searchButton.addEventListener("click", searchWebsite);
+
+    // Press ENTER to search
+    searchInput.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            searchWebsite();
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
