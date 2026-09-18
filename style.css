@@ -24,7 +24,10 @@
 html {
     scroll-behavior: smooth;
 }
-/* DOPE SEARCH BAR */
+/* =========================
+   DOPE SEARCH BAR
+   ========================= */
+
 .search-container {
     display: flex;
     justify-content: center;
@@ -64,6 +67,36 @@ html {
     transition: 0.3s ease;
 }
 
+/* Button hover effect */
+.search-container button:hover {
+    background: #6f5d44;
+    transform: scale(1.05);
+}
+
+/* Search bar focus effect */
+.search-container:focus-within {
+    border-color: #8a7657;
+    box-shadow: 0 8px 30px rgba(138, 118, 87, 0.20);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .search-container {
+        margin: 20px 15px;
+        max-width: none;
+    }
+
+    .search-container input {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+
+    .search-container button {
+        width: 44px;
+        height: 44px;
+        font-size: 17px;
+    }
+}
 .search-container button:hover {
     transform: scale(1.08);
 }
