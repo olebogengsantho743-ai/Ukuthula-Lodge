@@ -1,160 +1,190 @@
-/* =========================================
-   MOBILE MENU
-========================================= */
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("navMenu");
+/* =====================================================
+UKUTHULA LODGE
+WHEN NATURE MEETS BEAUTY
+===================================================== */
 
-if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-        mainNav.classList.toggle("active");
-    });
+:root {
+--dark: #30291f;
+--dark-brown: #493b2b;
+--brown: #695640;
+--khaki: #a99b7d;
+--light-khaki: #d8cfbc;
+--cream: #f7f3eb;
+--white: #ffffff;
+--border: #dcd4c5;
+--text: #40392f;
 }
 
-/* Close mobile menu after clicking a link */
-const navLinks = document.querySelectorAll("#navMenu a");
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        if (mainNav) {
-            mainNav.classList.remove("active");
-        }
-    });
-});
-
-/* =========================================
-   WEBSITE SEARCH
-========================================= */
-
-function searchWebsite() {
-    const searchBox = document.getElementById("websiteSearch");
-    if (!searchBox) return;
-
-    const searchTerm = searchBox.value.toLowerCase().trim();
-    if (searchTerm === "") {
-        return; // you already trigger on keyup; no need for alert each keypress
-    }
-
-    // Remove previous highlights
-    document
-        .querySelectorAll(".search-highlight")
-        .forEach(el => el.classList.remove("search-highlight"));
-
-    /*
-       Search key content elements from your HTML:
-       - .card, .activity-card, .sustainability-card, .platform
-       - .overview-grid > div, .team-card, .package-card, .package-list-item
-       - .room-card, .included-accommodation, .catering-box
-       - .video-content, .uniform-section
-       - generic sections (as fallback)
-    */
-    const elements = document.querySelectorAll(
-        ".card, " +
-        ".activity-card, " +
-        ".sustainability-card, " +
-        ".platform, " +
-        ".overview-grid > div, " +
-        ".team-card, " +
-        ".package-card, " +
-        ".package-list-item, " +
-        ".room-card, " +
-        ".included-accommodation, " +
-        ".catering-box, " +
-        ".video-content, " +
-        ".uniform-section, " +
-        "section"
-    );
-
-    let firstMatch = null;
-
-    elements.forEach(el => {
-        const text = el.textContent.toLowerCase();
-        if (text.includes(searchTerm)) {
-            if (!firstMatch) {
-                firstMatch = el;
-            }
-            el.classList.add("search-highlight");
-        }
-    });
-
-    if (!firstMatch) {
-        // If you want an alert when NO result at all:
-        // alert("No results found for: " + searchTerm);
-        return;
-    }
-
-    // Scroll to the first matching element
-    firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
-/* =========================================
-   BOOKING / AVAILABILITY
-========================================= */
-
-function checkAvailability() {
-    const checkInElement = document.getElementById("checkIn");
-    const checkOutElement = document.getElementById("checkOut");
-    const guestsElement = document.getElementById("guests");
-
-    if (!checkInElement || !checkOutElement || !guestsElement) {
-        return;
-    }
-
-    const checkIn = checkInElement.value;
-    const checkOut = checkOutElement.value;
-    const guests = guestsElement.value;
-
-    if (!checkIn || !checkOut) {
-        alert("Please select your check-in and check-out dates.");
-        return;
-    }
-
-    const startDate = new Date(checkIn);
-    const endDate = new Date(checkOut);
-
-    if (endDate <= startDate) {
-        alert("Check-out must be after check-in.");
-        return;
-    }
-
-    alert(
-        `Thank you! Your enquiry for ${guests} guest(s)\n` +
-        `From: ${checkIn}\nTo: ${checkOut}\n\n` +
-        "has been prepared. Please contact Ukuthula Lodge to confirm availability."
-    );
+html {
+scroll-behavior: smooth;
 }
 
-/* =========================================
-   DATE VALIDATION
-========================================= */
-
-const today = new Date().toISOString().split("T")[0];
-const checkInInput = document.getElementById("checkIn");
-const checkOutInput = document.getElementById("checkOut");
-
-if (checkInInput) {
-    checkInInput.setAttribute("min", today);
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: var(--cream);
+color: var(--text);
+line-height: 1.6;
 }
 
-if (checkOutInput) {
-    checkOutInput.setAttribute("min", today);
+img {
+max-width: 100%;
 }
 
-/* Update check-out min when check-in changes */
-if (checkInInput && checkOutInput) {
-    checkInInput.addEventListener("change", function () {
-        const newMin = this.value || today;
-        checkOutInput.setAttribute("min", newMin);
-        if (checkOutInput.value && checkOutInput.value < newMin) {
-            checkOutInput.value = newMin;
-        }
-    });
+a {
+text-decoration: none;
+color: inherit;
 }
 
-/* =========================================
-   LOYALTY PROGRAMME
-========================================= */
-function loyaltyMessage() {
-    alert(
-        "Thank you for your interest in the Ukuthula Loyalty Programme! " +
-        "Please contact Ukuthula Lodge for more information about membership and benefits."
-    );
+/* DOPE SEARCH BAR */
+.search-container {
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 600px;
+margin: 25px auto;
+background: rgba(255, 255, 255, 0.95);
+border: 1px solid #d6c7ad;
+border-radius: 50px;
+padding: 6px;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.search-container input {
+flex: 1;
+border: none;
+outline: none;
+background: transparent;
+padding: 14px 20px;
+font-size: 16px;
+color: #4a4035;
+}
+
+.search-container input::placeholder {
+color: #8c8172;
+}
+
+.search-container button {
+border: none;
+border-radius: 50%;
+width: 48px;
+
+.section-image img {
+height: 350px;
+}
+
+.section-content h2 {
+font-size: 34px;
+}
+
+.features {
+grid-template-columns: 1fr;
+padding: 45px 8%;
+}
+
+.feature {
+border-right: none;
+border-bottom: 1px solid rgba(73, 59, 43, 0.2);
+}
+
+.feature:last-child {
+border-bottom: none;
+}
+
+.card-grid,
+.activity-grid {
+grid-template-columns: 1fr;
+}
+
+/* SAME IMAGE SIZE ON MOBILE TOO */
+
+.card img,
+.activity-card img {
+height: 250px;
+width: 100%;
+object-fit: cover;
+}
+
+.image-break {
+min-height: 350px;
+}
+
+.image-break h2 {
+font-size: 34px;
+}
+
+.sustainability {
+width: 100%;
+}
+
+.sustainability-grid {
+grid-template-columns: 1fr;
+}
+
+.video-section {
+padding: 70px 6%;
+}
+
+.video-content h2 {
+font-size: 34px;
+}
+
+.video-placeholder {
+height: 280px;
+}
+
+.overview-grid {
+grid-template-columns: 1fr;
+}
+
+.loyalty-section {
+padding: 70px 6%;
+}
+
+.loyalty-card {
+padding: 35px 25px;
+flex-direction: column;
+text-align: center;
+}
+
+.loyalty-card h2 {
+font-size: 32px;
+}
+
+.partnership-box {
+grid-template-columns: 1fr;
+}
+
+.uniform-section {
+grid-template-columns: 1fr;
+}
+
+.uniform-content {
+padding: 70px 8%;
+}
+
+.uniform-content h2 {
+font-size: 34px;
+}
+
+.uniform-image {
+height: 350px;
+}
+
+.team-grid {
+grid-template-columns: 1fr;
+}
+
+.cta {
+padding: 80px 6%;
+}
+
+.cta h2 {
+font-size: 35px;
+}
 }
