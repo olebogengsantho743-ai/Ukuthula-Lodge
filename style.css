@@ -1,826 +1,190 @@
-/* =====================================================
-   UKUTHULA LODGE STYLES
-   Eco lodge / olive-green palette
-   ===================================================== */
-
-:root {
-    --olive-dark: #283618;
-    --olive: #606c38;
-    --olive-light: #a3b18a;
-    --sand: #d4a373;
-    --cream: #fefae0;
-    --white: #ffffff;
-    --text: #2f3324;
-    --border: #d5d6c6;
-    --accent: #bc6c25;
-}
-
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* TOP BAR */
-.top-bar {
-    background: var(--olive-dark);
-    color: var(--cream);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 10%;
-    font-size: 14px;
-}
-
-.top-bar a {
-    color: var(--olive-light);
-}
-
-/* HEADER */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 10%;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo span {
-    font-size: 24px;
-    letter-spacing: 4px;
-    font-weight: bold;
-    color: var(--olive-dark);
-}
-
-.logo small {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--olive);
-}
-
-/* NAV */
-nav {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    font-size: 14px;
-}
-
-nav a {
-    padding: 6px 0;
-    position: relative;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: var(--olive);
-    transition: width 0.2s ease;
-}
+/* =========================================
+MOBILE MENU
+========================================= */
 
-nav a:hover::after {
-    width: 100%;
-}
-
-.nav-button {
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: var(--olive);
-    color: var(--cream);
-    border: none;
-}
-
-/* MOBILE MENU BUTTON */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* SEARCH BAR */
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    margin: 16px auto 24px;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 6px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-.search-container input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 10px 16px;
-    font-size: 15px;
-    color: var(--text);
-}
-
-.search-container input::placeholder {
-    color: #8a8c7a;
-}
-
-.search-container button {
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background: var(--olive);
-    color: var(--cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("navMenu");
 
-.search-container button:hover {
-    background: var(--olive-dark);
-}
-
-/* HERO */
-.hero {
-    position: relative;
-    height: 70vh;
-    min-height: 420px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--cream);
-
-    /* uses your provided image path */
-    background: url("images/hero.jpg") center/cover no-repeat fixed;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.45),
-        rgba(0, 0, 0, 0.65)
-    );
-}
-
-.hero-overlay {
-    position: relative;
-    text-align: center;
-    padding: 0 10%;
-}
+if (menuToggle && mainNav) {
 
-.hero-overlay p {
-    letter-spacing: 4px;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
-
-.hero-overlay h1 {
-    font-size: 42px;
-    letter-spacing: 6px;
-    margin-bottom: 6px;
-}
+menuToggle.addEventListener("click", () => {
+mainNav.classList.toggle("active");
+});
 
-.hero-overlay h2 {
-    font-size: 18px;
-    letter-spacing: 3px;
-    margin-bottom: 24px;
 }
 
-/* BUTTONS */
-.button,
-.booking-bar button,
-.wedding-button {
-    display: inline-block;
-    padding: 10px 24px;
-    border-radius: 30px;
-    background: var(--accent);
-    color: var(--cream);
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: none;
-    cursor: pointer;
-}
-
-.button:hover,
-.booking-bar button:hover,
-.wedding-button:hover {
-    background: #8f4d1b;
-}
 
-/* BOOKING BAR */
-.booking-bar {
-    display: flex;
-    gap: 16px;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 18px 10%;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-}
+/* Close mobile menu after clicking a link */
 
-.booking-bar div {
-    display: flex;
-    flex-direction: column;
-    min-width: 150px;
-}
+const navLinks = document.querySelectorAll("#navMenu a");
 
-.booking-bar label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-    color: var(--olive-dark);
-}
+navLinks.forEach(link => {
 
-.booking-bar input,
-.booking-bar select {
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    font-size: 14px;
-}
+link.addEventListener("click", () => {
 
-/* GENERIC SECTIONS */
-.section {
-    padding: 60px 10%;
-    background: var(--cream);
+if (mainNav) {
+mainNav.classList.remove("active");
 }
 
-.section:nth-of-type(even) {
-    background: #f8f5e9;
-}
+});
 
-.section-heading {
-    text-align: center;
-    margin-bottom: 32px;
-}
+});
 
-.eyebrow,
-.section-label,
-.small-heading {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--olive);
-    margin-bottom: 8px;
-}
 
-.section-heading h2,
-.team-heading h2 {
-    font-size: 28px;
-    color: var(--olive-dark);
-}
+/* =========================================
+WEBSITE SEARCH
+========================================= */
 
-/* ABOUT */
-.about {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-    gap: 30px;
-    align-items: center;
-}
+function searchWebsite() {
 
-.section-image img {
-    border-radius: 14px;
-}
+const searchBox = document.getElementById("websiteSearch");
 
-.section-content h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
+if (!searchBox) {
+return;
 }
 
-/* FEATURES */
-.features {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    text-align: center;
-    background: var(--olive-dark);
-    color: var(--cream);
-    padding: 35px 10%;
-    gap: 18px;
-}
+const searchTerm = searchBox.value.toLowerCase().trim();
 
-.feature h3 {
-    margin-bottom: 4px;
-}
+if (searchTerm === "") {
 
-/* CARD GRIDS */
-.card-grid,
-.activity-grid,
-.sustainability-grid,
-.contact-grid,
-.overview-grid,
-.partnership-box,
-.accommodation-grid,
-.package-grid,
-.package-list,
-.team-container {
-    display: grid;
-    gap: 20px;
-}
+alert("Please enter something to search.");
 
-/* two columns where appropriate */
-.card-grid,
-.activity-grid,
-.sustainability-grid,
-.contact-grid,
-.overview-grid,
-.partnership-box,
-.accommodation-grid,
-.package-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+return;
 }
 
-/* GENERAL CARD STYLE */
-.card,
-.activity-card,
-.sustainability-card,
-.platform,
-.package-card,
-.package-list-item,
-.room-card,
-.catering-box,
-.video-content,
-.loyalty-card,
-.included-accommodation,
-.package-note,
-.photo-package,
-.uniform-content,
-.team-card {
-    background: var(--white);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    padding: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
 
-.card img,
-.activity-card img,
-.section-image img,
-.uniform-image img,
-.team-card img {
-    border-radius: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
+/*
+Search smaller elements first.
+This helps the search find the exact
+room, activity, meal, etc.
+*/
 
-.card-content h3,
-.activity-card h3,
-.sustainability-card h3,
-.meal-price h3,
-.platform h3,
-.overview-grid h3,
-.partnership-box h3,
-.video-content h2,
-.loyalty-card h2,
-.package-title h3,
-.space-card h4,
-.package-card h4,
-.room-card h4,
-.included-accommodation h3,
-.package-note h3,
-.uniform-content h2,
-.team-info h3,
-.wedding-package h2 {
-    color: var(--olive-dark);
-}
+const elements = document.querySelectorAll(
+".card, " +
+".activity-card, " +
+".sustainability-card, " +
+".platform, " +
+".overview-grid > div, " +
+".team-card, " +
+".package-card, " +
+".package-list-item, " +
+".room-card, " +
+".included-accommodation, " +
+".catering-box, " +
+".video-content, " +
+".uniform-section, " +
+searchWebsite();
 
-/* ROOM PRICE / MEAL PRICE */
-.room-price,
-.meal-price {
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border);
 }
 
-/* IMAGE BREAK */
-.image-break {
-    background: url("images/hiking.jpg") center/cover no-repeat fixed;
-    color: var(--cream);
-    text-align: center;
-    padding: 70px 10%;
-    position: relative;
-}
+});
 
-.image-break::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
 }
 
-.image-break > div {
-    position: relative;
-    max-width: 500px;
-    margin: 0 auto;
-}
 
-/* SUSTAINABILITY */
-.sustainability-card span {
-    font-size: 26px;
-    display: inline-block;
-    margin-bottom: 6px;
-}
+/* =========================================
+BOOKING / AVAILABILITY
+========================================= */
 
-/* DINING */
-.catering-box {
-    margin-top: 24px;
-}
+function checkAvailability() {
 
-/* ONLINE PLATFORMS */
-.online-platforms .platform-box {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+const checkInElement = document.getElementById("checkIn");
+const checkOutElement = document.getElementById("checkOut");
+const guestsElement = document.getElementById("guests");
 
-.platform {
-    text-align: center;
-}
 
-/* VIDEO SECTION */
-.video-section {
-    padding: 60px 10%;
-    background: #f7f4e7;
+if (!checkInElement || !checkOutElement || !guestsElement) {
+return;
 }
 
-.video-content {
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-}
 
-.video-placeholder {
-    margin-top: 16px;
-    border-radius: 12px;
-    border: 1px dashed var(--olive);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    color: var(--olive-dark);
-}
+const checkIn = checkInElement.value;
+const checkOut = checkOutElement.value;
+const guests = guestsElement.value;
 
-.video-placeholder span {
-    font-size: 26px;
-}
 
-/* OVERVIEW */
-.overview-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+if (!checkIn || !checkOut) {
 
-/* LOYALTY */
-.loyalty-section {
-    padding: 60px 10%;
-    background: linear-gradient(
-        135deg,
-        var(--olive-dark),
-        var(--olive)
-    );
-    color: var(--cream);
-}
+alert(
+"Please select your check-in and check-out dates."
+);
 
-.loyalty-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(254, 250, 224, 0.08);
-    border-color: rgba(254, 250, 224, 0.2);
+return;
 }
 
-.loyalty-symbol {
-    font-size: 48px;
-    font-weight: bold;
-}
 
-/* PARTNERSHIPS */
-.partnership-box {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+const startDate = new Date(checkIn);
+const endDate = new Date(checkOut);
 
-/* WEDDING PACKAGE */
-.wedding-package {
-    padding: 60px 10%;
-    background: #f8f5e9;
-}
 
-.package-header {
-    text-align: center;
-    margin-bottom: 32px;
-}
+if (endDate <= startDate) {
 
-.package-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-}
+alert(
+"Check-out must be after check-in."
+);
 
-.package-title span {
-    font-weight: bold;
-    color: var(--accent);
+return;
 }
 
-.space-card img {
-    height: 220px;
-    object-fit: cover;
-}
 
-.included {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 3px 10px;
-    border-radius: 999px;
-    background: var(--olive-light);
-    color: var(--olive-dark);
-    font-size: 12px;
-}
+alert(
+`Thank you! Your enquiry for ${guests} guest(s) has been prepared. Please contact Ukuthula Lodge to confirm availability.`
+);
 
-.included.large {
-    font-size: 14px;
 }
 
-/* PHOTO PACKAGE */
-.photo-package .photo-details {
-    display: flex;
-    gap: 16px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-}
 
-/* ACCOMMODATION GRID */
-.accommodation-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+/* =========================================
+DATE VALIDATION
+========================================= */
 
-.featured-room {
-    border-color: var(--accent);
-}
+const today = new Date().toISOString().split("T")[0];
 
-.room-badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: var(--cream);
-    font-size: 11px;
-}
+const checkInInput = document.getElementById("checkIn");
+const checkOutInput = document.getElementById("checkOut");
 
-/* INCLUDED ACCOMMODATION */
-.included-accommodation {
-    margin-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-/* IMPORTANT NOTE */
-.package-note {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    margin-top: 24px;
-}
+if (checkInInput) {
 
-.note-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: var(--cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
+checkInInput.setAttribute("min", today);
 
-/* WEDDING CTA */
-.wedding-cta {
-    margin-top: 30px;
-    padding: 20px 16px;
-    border-radius: 12px;
-    background: var(--olive-dark);
-    color: var(--cream);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
-/* UNIFORMS */
-.uniform-section {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-    gap: 24px;
-    padding: 60px 10%;
-    background: var(--white);
-}
 
-.uniform-image img {
-    border-radius: 12px;
-    height: 100%;
-    object-fit: cover;
-}
+if (checkOutInput) {
 
-/* TEAM SECTION */
-.team-section {
-    padding: 60px 10%;
-    background: var(--cream);
-}
+checkOutInput.setAttribute("min", today);
 
-.team-heading {
-    text-align: center;
-    margin-bottom: 28px;
 }
 
-.team-container {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 
-.team-card img {
-    height: 230px;
-}
+/* =========================================
+UPDATE CHECK-OUT DATE
+========================================= */
 
-/* CTA */
-.cta {
-    padding: 70px 10%;
-    background: linear-gradient(
-        135deg,
-        var(--olive-dark),
-        var(--olive)
-    );
-    color: var(--cream);
-    text-align: center;
-}
+if (checkInInput && checkOutInput) {
 
-.cta h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
+checkInInput.addEventListener("change", function() {
 
-/* CONTACT */
-.contact-grid h3 {
-    color: var(--olive-dark);
-}
+checkOutInput.setAttribute(
+"min",
+this.value
+);
 
-/* FOOTER */
-footer {
-    background: #181c10;
-    color: #dddccf;
-    text-align: center;
-    padding: 30px 10%;
-    font-size: 13px;
-}
+});
 
-.footer-logo {
-    letter-spacing: 4px;
-    font-size: 16px;
-    margin-bottom: 4px;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin: 10px 0 12px;
-    flex-wrap: wrap;
-}
 
-.footer-links a {
-    font-size: 12px;
-    color: #d5d6c6;
-}
+/* =========================================
+LOYALTY PROGRAMME
+========================================= */
 
-footer a {
-    color: var(--olive-light);
-}
+function loyaltyMessage() {
 
-/* SEARCH HIGHLIGHT */
-.search-highlight {
-    outline: 2px solid var(--accent);
-    box-shadow: 0 0 0 3px rgba(188, 108, 37, 0.4);
-    border-radius: 12px;
-}
+alert(
+"Thank you for your interest in the Ukuthula Loyalty Programme! Please contact Ukuthula Lodge for more information about membership and benefits."
+);
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    header {
-        padding: 14px 6%;
-    }
-
-    .search-container {
-        margin: 12px 6% 20px;
-    }
-
-    .booking-bar {
-        padding: 18px 6%;
-    }
-
-    .section,
-    .wedding-package,
-    .team-section,
-    .loyalty-section,
-    .video-section,
-    .uniform-section {
-        padding: 50px 6%;
-    }
-
-    .cta {
-        padding: 60px 6%;
-    }
-
-    .about,
-    .uniform-section {
-        grid-template-columns: 1fr;
-    }
-
-    .overview-grid,
-    .card-grid,
-    .activity-grid,
-    .sustainability-grid,
-    .contact-grid,
-    .partnership-box,
-    .online-platforms .platform-box,
-    .accommodation-grid,
-    .package-grid,
-    .team-container {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        background-attachment: scroll;
-    }
-
-    .hero-overlay h1 {
-        font-size: 32px;
-    }
 }
 
-/* MOBILE NAV */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    nav {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        left: 0;
-        background: var(--white);
-        flex-direction: column;
-        padding: 10px 6%;
-        border-bottom: 1px solid var(--border);
-        display: none;
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    .nav-button {
-        align-self: flex-start;
-        margin-top: 4px;
-    }
-}
