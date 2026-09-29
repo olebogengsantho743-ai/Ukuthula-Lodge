@@ -22,9 +22,9 @@
     <input 
         type="text" 
         id="websiteSearch" 
-        placeholder="Search Ukuthula Lodge (rooms, activities, dining, etc.)..."
+        placeholder="Search Ukuthula Lodge..."
     >
-    <button id="searchButton">🔍</button>
+    <button>🔍</button>
 </div>
 
 <!-- HEADER -->
@@ -61,138 +61,49 @@
 <!-- BOOKING BAR -->
 <section class="booking-bar" id="book">
     <div>
-        <label for="checkIn">Check In</label>
+        <label>Check In</label>
         <input type="date" id="checkIn">
     </div>
 
     <div>
-        <label for="checkOut">Check Out</label>
+        <label>Check Out</label>
         <input type="date" id="checkOut">
     </div>
 
+    <!-- guests added so booking works properly, you can remove if you don’t want it -->
     <div>
-        <label for="guests">Guests</label>
+        <label>Guests</label>
         <input type="number" id="guests" min="1" value="2">
     </div>
 
-    <button class="button" id="checkAvailabilityBtn">
-        Check Availability
-    </button>
+    <button id="checkAvailabilityBtn">Check Availability</button>
 </section>
 
-<!-- ACCOMMODATION -->
-<section class="section" id="accommodation">
-    <div class="section-heading">
-        <p class="eyebrow">STAY IN COMFORT</p>
-        <h2>Accommodation</h2>
-    </div>
-
-    <div class="card-grid">
-        <article class="card">
-            <img src="images/room1.jpg" alt="Luxury Eco Suite">
-            <h3>Luxury Eco Suite</h3>
-            <p>Spacious suites with private deck overlooking the valley.</p>
-        </article>
-
-        <article class="card">
-            <img src="images/room2.jpg" alt="Bushview Chalet">
-            <h3>Bushview Chalet</h3>
-            <p>Cozy chalets tucked into indigenous bush for total tranquillity.</p>
-        </article>
-    </div>
-</section>
-
-<!-- ACTIVITIES -->
-<section class="section" id="activities">
-    <div class="section-heading">
-        <p class="eyebrow">DISCOVER</p>
-        <h2>Activities</h2>
-    </div>
-
-    <div class="activity-grid">
-        <article class="activity-card">
-            <img src="images/game-drive.jpg" alt="Guided Game Drives">
-            <h3>Guided Game Drives</h3>
-            <p>Experience African wildlife in their natural habitat.</p>
-        </article>
-
-        <article class="activity-card">
-            <img src="images/hike.jpg" alt="Nature Walks">
-            <h3>Nature Walks</h3>
-            <p>Guided walks focusing on birds, plants, and conservation.</p>
-        </article>
-    </div>
-</section>
-
-<!-- SUSTAINABILITY -->
-<section class="section" id="sustainability">
-    <div class="section-heading">
-        <p class="eyebrow">OUR PROMISE</p>
-        <h2>Sustainability</h2>
-    </div>
-
-    <div class="sustainability-grid">
-        <article class="sustainability-card">
-            <h3>Solar-Powered Lodge</h3>
-            <p>Ukuthula runs primarily on solar energy to minimize impact.</p>
-        </article>
-
-        <article class="sustainability-card">
-            <h3>Water Stewardship</h3>
-            <p>Rainwater harvesting and careful water use across the property.</p>
-        </article>
-    </div>
-</section>
-
-<!-- DINING -->
-<section class="section" id="dining">
-    <div class="section-heading">
-        <p class="eyebrow">TASTE THE WILD</p>
-        <h2>Dining</h2>
-    </div>
-
-    <div class="card-grid">
-        <article class="card">
-            <h3>Farm-to-Table</h3>
-            <p>Fresh, locally sourced ingredients inspired by Zulu flavours.</p>
-        </article>
-
-        <article class="card">
-            <h3>Boma Evenings</h3>
-            <p>Starlit dinners around the fire with traditional storytelling.</p>
-        </article>
-    </div>
-</section>
-
-<!-- ABOUT -->
+<!-- ABOUT / TEAM PART YOU GAVE -->
 <section class="section" id="about">
+
     <div class="section-heading">
         <p class="eyebrow">OUR STORY</p>
         <h2>About Us</h2>
     </div>
 
-    <div class="overview-grid">
-        <div>
-            <p>
-                Ukuthula Lodge is an eco-conscious retreat in KwaZulu-Natal,
-                where indigenous landscapes, wildlife, and warm hospitality meet.
-            </p>
-        </div>
-        <div class="team-grid">
+    <div class="team-grid">
 
-            <!-- CHRISKE -->
-            <div class="team-card">
-                <img src="images/chriske.jpg" alt="Chriske - Service Manager">
-                <div class="team-info">
-                    <h3>Chriske</h3>
-                    <h4>Service Manager</h4>
-                    <p>Coordinates guest services and maintains
-                       high standards of hospitality at the lodge.</p>
-                </div>
+        <!-- CHRISKE -->
+        <div class="team-card">
+            <img src="images/chriske.jpg" alt="Chriske - Service Manager">
+            <div class="team-info">
+                <h3>Chriske</h3>
+                <h4>Service Manager</h4>
+                <p>
+                    Coordinates guest services and helps maintain
+                    high standards of service at the lodge.
+                </p>
             </div>
-
         </div>
+
     </div>
+
 </section>
 
 <!-- CTA -->
@@ -200,13 +111,16 @@
     <div>
         <p class="eyebrow">YOUR ESCAPE AWAITS</p>
         <h2>Come Experience Ukuthula</h2>
-        <p>When nature meets beauty, unforgettable memories begin.</p>
+        <p>
+            When nature meets beauty, unforgettable memories begin.
+        </p>
         <a href="#book" class="button">Plan Your Stay</a>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section class="section contact" id="contact">
+
     <div class="section-heading">
         <p class="eyebrow">GET IN TOUCH</p>
         <h2>Contact Ukuthula Lodge</h2>
@@ -231,10 +145,12 @@
             <p>Contact us for availability and enquiries.</p>
         </div>
     </div>
+
 </section>
 
 <!-- FOOTER -->
 <footer>
+
     <div class="footer-logo">
         UKUTHULA LODGE
     </div>
@@ -257,8 +173,10 @@
     <p class="copyright">
         © 2026 Ukuthula Lodge. All rights reserved.
     </p>
+
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
