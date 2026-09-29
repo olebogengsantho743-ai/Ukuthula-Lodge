@@ -1,190 +1,128 @@
-/* =====================================================
-UKUTHULA LODGE
-WHEN NATURE MEETS BEAUTY
-===================================================== */
+```javascript
+/* =========================================
+   MOBILE MENU
+========================================= */
 
-:root {
---dark: #30291f;
---dark-brown: #493b2b;
---brown: #695640;
---khaki: #a99b7d;
---light-khaki: #d8cfbc;
---cream: #f7f3eb;
---white: #ffffff;
---border: #dcd4c5;
---text: #40392f;
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", () => {
+
+    mainNav.classList.toggle("active");
+
+});
+
+
+/* Close mobile menu after clicking a link */
+
+const navLinks = document.querySelectorAll(".nav a");
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mainNav.classList.remove("active");
+
+    });
+
+});
+
+<script>
+function searchWebsite() {
+    const search = document.getElementById("websiteSearch").value
+        .toLowerCase()
+        .trim();
+
+    if (search === "") {
+        return;
+    }
+
+    const sections = document.querySelectorAll("section, div");
+
+    let found = false;
+
+    sections.forEach(section => {
+        if (section.innerText.toLowerCase().includes(search)) {
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            section.style.outline = "3px solid #8a7657";
+
+            setTimeout(() => {
+                section.style.outline = "";
+            }, 2000);
+
+            found = true;
+        }
+    });
+
+    if (!found) {
+        alert("Sorry, we couldn't find anything matching your search.");
+    }
+}
+</script>
+/* =========================================
+   BOOKING / AVAILABILITY
+========================================= */
+
+function checkAvailability() {
+
+    const checkIn = document.getElementById("checkIn").value;
+    const checkOut = document.getElementById("checkOut").value;
+    const guests = document.getElementById("guests").value;
+
+    const message = document.getElementById("bookingMessage");
+
+
+    if (!checkIn || !checkOut) {
+
+        message.textContent =
+            "Please select your check-in and check-out dates.";
+
+        return;
+    }
+
+
+    const startDate = new Date(checkIn);
+    const endDate = new Date(checkOut);
+
+
+    if (endDate <= startDate) {
+
+        message.textContent =
+            "Check-out must be after check-in.";
+
+        return;
+    }
+
+
+    message.textContent =
+        `Thank you! Your enquiry for ${guests} has been prepared. Please contact Ukuthula Lodge to confirm availability.`;
+
 }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
 
-html {
-scroll-behavior: smooth;
-}
+/* =========================================
+   DATE VALIDATION
+========================================= */
 
-body {
-font-family: Arial, Helvetica, sans-serif;
-background: var(--cream);
-color: var(--text);
-line-height: 1.6;
-}
+const today = new Date().toISOString().split("T")[0];
 
-img {
-max-width: 100%;
-}
+document.getElementById("checkIn").setAttribute("min", today);
+document.getElementById("checkOut").setAttribute("min", today);
 
-a {
-text-decoration: none;
-color: inherit;
-}
 
-/* DOPE SEARCH BAR */
-.search-container {
-display: flex;
-justify-content: center;
-align-items: center;
-max-width: 600px;
-margin: 25px auto;
-background: rgba(255, 255, 255, 0.95);
-border: 1px solid #d6c7ad;
-border-radius: 50px;
-padding: 6px;
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
+/* =========================================
+   UPDATE CHECK-OUT DATE
+========================================= */
 
-.search-container input {
-flex: 1;
-border: none;
-outline: none;
-background: transparent;
-padding: 14px 20px;
-font-size: 16px;
-color: #4a4035;
-}
+document.getElementById("checkIn").addEventListener("change", function () {
 
-.search-container input::placeholder {
-color: #8c8172;
-}
+    document
+        .getElementById("checkOut")
+        .setAttribute("min", this.value);
 
-.search-container button {
-border: none;
-border-radius: 50%;
-width: 48px;
-
-.section-image img {
-height: 350px;
-}
-
-.section-content h2 {
-font-size: 34px;
-}
-
-.features {
-grid-template-columns: 1fr;
-padding: 45px 8%;
-}
-
-.feature {
-border-right: none;
-border-bottom: 1px solid rgba(73, 59, 43, 0.2);
-}
-
-.feature:last-child {
-border-bottom: none;
-}
-
-.card-grid,
-.activity-grid {
-grid-template-columns: 1fr;
-}
-
-/* SAME IMAGE SIZE ON MOBILE TOO */
-
-.card img,
-.activity-card img {
-height: 250px;
-width: 100%;
-object-fit: cover;
-}
-
-.image-break {
-min-height: 350px;
-}
-
-.image-break h2 {
-font-size: 34px;
-}
-
-.sustainability {
-width: 100%;
-}
-
-.sustainability-grid {
-grid-template-columns: 1fr;
-}
-
-.video-section {
-padding: 70px 6%;
-}
-
-.video-content h2 {
-font-size: 34px;
-}
-
-.video-placeholder {
-height: 280px;
-}
-
-.overview-grid {
-grid-template-columns: 1fr;
-}
-
-.loyalty-section {
-padding: 70px 6%;
-}
-
-.loyalty-card {
-padding: 35px 25px;
-flex-direction: column;
-text-align: center;
-}
-
-.loyalty-card h2 {
-font-size: 32px;
-}
-
-.partnership-box {
-grid-template-columns: 1fr;
-}
-
-.uniform-section {
-grid-template-columns: 1fr;
-}
-
-.uniform-content {
-padding: 70px 8%;
-}
-
-.uniform-content h2 {
-font-size: 34px;
-}
-
-.uniform-image {
-height: 350px;
-}
-
-.team-grid {
-grid-template-columns: 1fr;
-}
-
-.cta {
-padding: 80px 6%;
-}
-
-.cta h2 {
-font-size: 35px;
-}
-}
+});
+```
