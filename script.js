@@ -40,18 +40,25 @@ function searchWebsite() {
         .forEach(el => el.classList.remove("search-highlight"));
 
     /*
-       Search in key content blocks:
-       - cards, activity cards, sustainability cards, team cards
-       - contact items, section blocks
+       Search key content elements:
+       - cards, activity cards, sustainability cards, platforms
+       - overview grid items, team cards, package items, rooms
+       - included accommodation, catering, video, uniform sections
     */
     const elements = document.querySelectorAll(
         ".card, " +
         ".activity-card, " +
         ".sustainability-card, " +
-        ".team-card, " +
+        ".platform, " +
         ".overview-grid > div, " +
-        ".contact-grid > div, " +
-        ".cta, " +
+        ".team-card, " +
+        ".package-card, " +
+        ".package-list-item, " +
+        ".room-card, " +
+        ".included-accommodation, " +
+        ".catering-box, " +
+        ".video-content, " +
+        ".uniform-section, " +
         "section"
     );
 
@@ -76,8 +83,8 @@ function searchWebsite() {
     firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-/* Bind search to button and Enter key */
-const searchButton = document.getElementById("searchButton");
+/* Attach search to button + Enter key */
+const searchButton = document.querySelector(".search-container button");
 if (searchButton) {
     searchButton.addEventListener("click", searchWebsite);
 }
@@ -94,16 +101,19 @@ if (searchInput) {
 /* =========================================
    BOOKING / AVAILABILITY
 ========================================= */
+
 function checkAvailability() {
     const checkInElement = document.getElementById("checkIn");
     const checkOutElement = document.getElementById("checkOut");
     const guestsElement = document.getElementById("guests");
 
-    if (!checkInElement || !checkOutElement || !guestsElement) return;
+    if (!checkInElement || !checkOutElement) {
+        return;
+    }
 
     const checkIn = checkInElement.value;
     const checkOut = checkOutElement.value;
-    const guests = guestsElement.value || "1";
+    const guests = guestsElement ? guestsElement.value || "1" : "1";
 
     if (!checkIn || !checkOut) {
         alert("Please select your check-in and check-out dates.");
@@ -125,7 +135,7 @@ function checkAvailability() {
     );
 }
 
-/* Attach to button */
+/* If you add a 'Check Availability' button, hook it here */
 const checkAvailabilityBtn = document.getElementById("checkAvailabilityBtn");
 if (checkAvailabilityBtn) {
     checkAvailabilityBtn.addEventListener("click", checkAvailability);
@@ -134,6 +144,7 @@ if (checkAvailabilityBtn) {
 /* =========================================
    DATE VALIDATION
 ========================================= */
+
 const today = new Date().toISOString().split("T")[0];
 const checkInInput = document.getElementById("checkIn");
 const checkOutInput = document.getElementById("checkOut");
@@ -149,15 +160,16 @@ if (checkOutInput) {
 /* Update check-out min when check-in changes */
 if (checkInInput && checkOutInput) {
     checkInInput.addEventListener("change", function () {
-        checkOutInput.setAttribute("min", this.value || today);
-        if (checkOutInput.value && checkOutInput.value < this.value) {
-            checkOutInput.value = this.value;
+        const newMin = this.value || today;
+        checkOutInput.setAttribute("min", newMin);
+        if (checkOutInput.value && checkOutInput.value < newMin) {
+            checkOutInput.value = newMin;
         }
     });
 }
 
 /* =========================================
-   LOYALTY PROGRAMME (optional)
+   LOYALTY PROGRAMME (if used)
 ========================================= */
 function loyaltyMessage() {
     alert(
