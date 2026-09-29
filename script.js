@@ -30,8 +30,7 @@ function searchWebsite() {
 
     const searchTerm = searchBox.value.toLowerCase().trim();
     if (searchTerm === "") {
-        alert("Please enter something to search.");
-        return;
+        return; // you already trigger on keyup; no need for alert each keypress
     }
 
     // Remove previous highlights
@@ -40,10 +39,12 @@ function searchWebsite() {
         .forEach(el => el.classList.remove("search-highlight"));
 
     /*
-       Search key content elements:
-       - cards, activity cards, sustainability cards, platforms
-       - overview grid items, team cards, package items, rooms
-       - included accommodation, catering, video, uniform sections
+       Search key content elements from your HTML:
+       - .card, .activity-card, .sustainability-card, .platform
+       - .overview-grid > div, .team-card, .package-card, .package-list-item
+       - .room-card, .included-accommodation, .catering-box
+       - .video-content, .uniform-section
+       - generic sections (as fallback)
     */
     const elements = document.querySelectorAll(
         ".card, " +
@@ -75,27 +76,13 @@ function searchWebsite() {
     });
 
     if (!firstMatch) {
-        alert("No results found for: " + searchTerm);
+        // If you want an alert when NO result at all:
+        // alert("No results found for: " + searchTerm);
         return;
     }
 
     // Scroll to the first matching element
     firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
-/* Attach search to button + Enter key */
-const searchButton = document.querySelector(".search-container button");
-if (searchButton) {
-    searchButton.addEventListener("click", searchWebsite);
-}
-
-const searchInput = document.getElementById("websiteSearch");
-if (searchInput) {
-    searchInput.addEventListener("keyup", event => {
-        if (event.key === "Enter") {
-            searchWebsite();
-        }
-    });
 }
 
 /* =========================================
@@ -107,13 +94,13 @@ function checkAvailability() {
     const checkOutElement = document.getElementById("checkOut");
     const guestsElement = document.getElementById("guests");
 
-    if (!checkInElement || !checkOutElement) {
+    if (!checkInElement || !checkOutElement || !guestsElement) {
         return;
     }
 
     const checkIn = checkInElement.value;
     const checkOut = checkOutElement.value;
-    const guests = guestsElement ? guestsElement.value || "1" : "1";
+    const guests = guestsElement.value;
 
     if (!checkIn || !checkOut) {
         alert("Please select your check-in and check-out dates.");
@@ -133,12 +120,6 @@ function checkAvailability() {
         `From: ${checkIn}\nTo: ${checkOut}\n\n` +
         "has been prepared. Please contact Ukuthula Lodge to confirm availability."
     );
-}
-
-/* If you add a 'Check Availability' button, hook it here */
-const checkAvailabilityBtn = document.getElementById("checkAvailabilityBtn");
-if (checkAvailabilityBtn) {
-    checkAvailabilityBtn.addEventListener("click", checkAvailability);
 }
 
 /* =========================================
@@ -169,7 +150,7 @@ if (checkInInput && checkOutInput) {
 }
 
 /* =========================================
-   LOYALTY PROGRAMME (if used)
+   LOYALTY PROGRAMME
 ========================================= */
 function loyaltyMessage() {
     alert(
