@@ -121,10 +121,6 @@ nav a:hover::after {
     border: none;
 }
 
-.nav-button:hover {
-    background: var(--olive-dark);
-}
-
 /* MOBILE MENU BUTTON */
 .menu-toggle {
     display: none;
@@ -189,7 +185,7 @@ nav a:hover::after {
     justify-content: center;
     color: var(--cream);
 
-    /* TODO: replace with your real image path */
+    /* uses your provided image path */
     background: url("images/hero.jpg") center/cover no-repeat fixed;
 }
 
@@ -229,9 +225,11 @@ nav a:hover::after {
 }
 
 /* BUTTONS */
-.button {
+.button,
+.booking-bar button,
+.wedding-button {
     display: inline-block;
-    padding: 10px 26px;
+    padding: 10px 24px;
     border-radius: 30px;
     background: var(--accent);
     color: var(--cream);
@@ -242,7 +240,9 @@ nav a:hover::after {
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.booking-bar button:hover,
+.wedding-button:hover {
     background: #8f4d1b;
 }
 
@@ -272,7 +272,8 @@ nav a:hover::after {
     color: var(--olive-dark);
 }
 
-.booking-bar input {
+.booking-bar input,
+.booking-bar select {
     padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid var(--border);
@@ -294,7 +295,9 @@ nav a:hover::after {
     margin-bottom: 32px;
 }
 
-.eyebrow {
+.eyebrow,
+.section-label,
+.small-heading {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -302,71 +305,381 @@ nav a:hover::after {
     margin-bottom: 8px;
 }
 
-.section-heading h2 {
+.section-heading h2,
+.team-heading h2 {
     font-size: 28px;
     color: var(--olive-dark);
+}
+
+/* ABOUT */
+.about {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: 30px;
+    align-items: center;
+}
+
+.section-image img {
+    border-radius: 14px;
+}
+
+.section-content h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* FEATURES */
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    text-align: center;
+    background: var(--olive-dark);
+    color: var(--cream);
+    padding: 35px 10%;
+    gap: 18px;
+}
+
+.feature h3 {
+    margin-bottom: 4px;
 }
 
 /* CARD GRIDS */
 .card-grid,
 .activity-grid,
 .sustainability-grid,
-.team-grid,
+.contact-grid,
 .overview-grid,
-.contact-grid {
+.partnership-box,
+.accommodation-grid,
+.package-grid,
+.package-list,
+.team-container {
     display: grid;
     gap: 20px;
 }
 
-/* Two-column layouts */
+/* two columns where appropriate */
 .card-grid,
 .activity-grid,
 .sustainability-grid,
-.team-grid,
-.contact-grid {
+.contact-grid,
+.overview-grid,
+.partnership-box,
+.accommodation-grid,
+.package-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.overview-grid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
-    align-items: flex-start;
-}
-
+/* GENERAL CARD STYLE */
 .card,
 .activity-card,
 .sustainability-card,
+.platform,
+.package-card,
+.package-list-item,
+.room-card,
+.catering-box,
+.video-content,
+.loyalty-card,
+.included-accommodation,
+.package-note,
+.photo-package,
+.uniform-content,
 .team-card {
     background: var(--white);
-    padding: 16px;
     border-radius: 12px;
     border: 1px solid var(--border);
+    padding: 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .card img,
 .activity-card img,
+.section-image img,
+.uniform-image img,
 .team-card img {
     border-radius: 10px;
     margin-bottom: 10px;
+    width: 100%;
     height: 220px;
     object-fit: cover;
 }
 
-.card h3,
+.card-content h3,
 .activity-card h3,
 .sustainability-card h3,
-.team-card h3 {
-    margin-bottom: 6px;
+.meal-price h3,
+.platform h3,
+.overview-grid h3,
+.partnership-box h3,
+.video-content h2,
+.loyalty-card h2,
+.package-title h3,
+.space-card h4,
+.package-card h4,
+.room-card h4,
+.included-accommodation h3,
+.package-note h3,
+.uniform-content h2,
+.team-info h3,
+.wedding-package h2 {
     color: var(--olive-dark);
 }
 
-/* TEAM */
-.team-info h4 {
-    font-size: 13px;
-    text-transform: uppercase;
-    color: var(--olive);
-    letter-spacing: 1px;
+/* ROOM PRICE / MEAL PRICE */
+.room-price,
+.meal-price {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+}
+
+/* IMAGE BREAK */
+.image-break {
+    background: url("images/hiking.jpg") center/cover no-repeat fixed;
+    color: var(--cream);
+    text-align: center;
+    padding: 70px 10%;
+    position: relative;
+}
+
+.image-break::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.image-break > div {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* SUSTAINABILITY */
+.sustainability-card span {
+    font-size: 26px;
+    display: inline-block;
     margin-bottom: 6px;
+}
+
+/* DINING */
+.catering-box {
+    margin-top: 24px;
+}
+
+/* ONLINE PLATFORMS */
+.online-platforms .platform-box {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.platform {
+    text-align: center;
+}
+
+/* VIDEO SECTION */
+.video-section {
+    padding: 60px 10%;
+    background: #f7f4e7;
+}
+
+.video-content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video-placeholder {
+    margin-top: 16px;
+    border-radius: 12px;
+    border: 1px dashed var(--olive);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--olive-dark);
+}
+
+.video-placeholder span {
+    font-size: 26px;
+}
+
+/* OVERVIEW */
+.overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* LOYALTY */
+.loyalty-section {
+    padding: 60px 10%;
+    background: linear-gradient(
+        135deg,
+        var(--olive-dark),
+        var(--olive)
+    );
+    color: var(--cream);
+}
+
+.loyalty-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(254, 250, 224, 0.08);
+    border-color: rgba(254, 250, 224, 0.2);
+}
+
+.loyalty-symbol {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* PARTNERSHIPS */
+.partnership-box {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* WEDDING PACKAGE */
+.wedding-package {
+    padding: 60px 10%;
+    background: #f8f5e9;
+}
+
+.package-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.package-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.package-title span {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.space-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.included {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--olive-light);
+    color: var(--olive-dark);
+    font-size: 12px;
+}
+
+.included.large {
+    font-size: 14px;
+}
+
+/* PHOTO PACKAGE */
+.photo-package .photo-details {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+/* ACCOMMODATION GRID */
+.accommodation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.featured-room {
+    border-color: var(--accent);
+}
+
+.room-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--cream);
+    font-size: 11px;
+}
+
+/* INCLUDED ACCOMMODATION */
+.included-accommodation {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* IMPORTANT NOTE */
+.package-note {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-top: 24px;
+}
+
+.note-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* WEDDING CTA */
+.wedding-cta {
+    margin-top: 30px;
+    padding: 20px 16px;
+    border-radius: 12px;
+    background: var(--olive-dark);
+    color: var(--cream);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* UNIFORMS */
+.uniform-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: 24px;
+    padding: 60px 10%;
+    background: var(--white);
+}
+
+.uniform-image img {
+    border-radius: 12px;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEAM SECTION */
+.team-section {
+    padding: 60px 10%;
+    background: var(--cream);
+}
+
+.team-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.team-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.team-card img {
+    height: 230px;
 }
 
 /* CTA */
@@ -384,10 +697,6 @@ nav a:hover::after {
 .cta h2 {
     font-size: 30px;
     margin-bottom: 10px;
-}
-
-.cta p {
-    margin-bottom: 18px;
 }
 
 /* CONTACT */
@@ -448,7 +757,12 @@ footer a {
         padding: 18px 6%;
     }
 
-    .section {
+    .section,
+    .wedding-package,
+    .team-section,
+    .loyalty-section,
+    .video-section,
+    .uniform-section {
         padding: 50px 6%;
     }
 
@@ -456,13 +770,35 @@ footer a {
         padding: 60px 6%;
     }
 
-    .overview-grid {
+    .about,
+    .uniform-section {
         grid-template-columns: 1fr;
+    }
+
+    .overview-grid,
+    .card-grid,
+    .activity-grid,
+    .sustainability-grid,
+    .contact-grid,
+    .partnership-box,
+    .online-platforms .platform-box,
+    .accommodation-grid,
+    .package-grid,
+    .team-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        background-attachment: scroll;
+    }
+
+    .hero-overlay h1 {
+        font-size: 32px;
     }
 }
 
+/* MOBILE NAV */
 @media (max-width: 768px) {
-    /* mobile nav */
     .menu-toggle {
         display: block;
     }
@@ -486,25 +822,5 @@ footer a {
     .nav-button {
         align-self: flex-start;
         margin-top: 4px;
-    }
-
-    .card-grid,
-    .activity-grid,
-    .sustainability-grid,
-    .team-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-overlay h1 {
-        font-size: 32px;
-    }
-
-    .hero-overlay h2 {
-        font-size: 15px;
-    }
-
-    .hero {
-        background-attachment: scroll;
     }
 }
