@@ -860,6 +860,16 @@ nav a:hover {
     border-bottom: 3px solid var(--khaki);
 }
 
+/* TEAM IMAGE SIZE
+   SAME 250PX HEIGHT AS ACTIVITIES, ACCOMMODATION & DINING */
+
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
 .team-member h3 {
     color: var(--dark);
 }
@@ -868,8 +878,6 @@ nav a:hover {
     color: var(--brown);
     font-size: 14px;
 }
-
-
 /* =====================================================
    CTA
    ===================================================== */
